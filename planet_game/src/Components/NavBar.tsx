@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import './NavBar.css'
 
-function NavBar({message = 'test', children}: {message:string, children: ReactNode}) {
+function NavBar({message, children}: {message?:string, children?: ReactNode}) {
 
   return (
     <>
