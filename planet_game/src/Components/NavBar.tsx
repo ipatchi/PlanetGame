@@ -5,9 +5,7 @@ function NavBar() {
   return (
     <>
       <div className='Nav'>
-        <p className='text'>
-          Text
-        </p>
+        <h1> Planets Game </h1>
       </div>
     </>
   )

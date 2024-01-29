@@ -1,13 +1,16 @@
 .Nav {
-    font-size: x-large;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: medium;
     background-color: #1c1e2e;
-    width:auto;
-    height: 5vh;
-    border-radius: 10px;
-    margin:auto;
+    width:110%;
+    height: 8%;
+    margin: -8px;
+    text-align: center;
+    
 }
 
-.text {
-    text-align: center; 
-    padding-top: 50%;
+.Nav h1 {
+    color: white;
+    
 }
