@@ -1,0 +1,13 @@
+.Nav {
+    font-size: x-large;
+    background-color: #1c1e2e;
+    width:auto;
+    height: 5vh;
+    border-radius: 10px;
+    margin:auto;
+}
+
+.text {
+    text-align: center; 
+    padding-top: 50%;
+}
