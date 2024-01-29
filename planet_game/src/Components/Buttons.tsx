@@ -1,12 +1,12 @@
 'use client'
 import './Buttons.css'
 
-function Buttons({message:string}) {
+function Buttons({message='test'}: {message:string}) {
 
   return (
     <>
       <div>
-        <button className="button" type="button">{message}</button>
+        <button className="button" type="button"><div>{message}</div></button>
       </div>
     </>
   )

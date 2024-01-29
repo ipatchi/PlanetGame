@@ -8,7 +8,7 @@ function App() {
     <>
       <div>
         <NavBar></NavBar>
-        <Buttons message='hello'></Buttons>
+        <Buttons message='message'></Buttons>
         <p>
           Hello World
         </p>
