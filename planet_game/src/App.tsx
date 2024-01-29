@@ -1,4 +1,5 @@
 import './App.css'
+import Buttons from './Components/Buttons'
 import NavBar from './Components/NavBar'
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <>
       <div>
         <NavBar></NavBar>
+        <Buttons message='hello'></Buttons>
         <p>
           Hello World
         </p>

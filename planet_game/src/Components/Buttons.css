@@ -1,0 +1,13 @@
+.button {
+    margin:auto;
+    padding: 12px;
+    font-family: inherit;
+    border-radius: 24px;
+    display: inline-block;
+    font-size: small;
+    font-weight: bolder;
+    vertical-align: middle;
+    border-color: black;
+    border-width: 3px;
+
+}
