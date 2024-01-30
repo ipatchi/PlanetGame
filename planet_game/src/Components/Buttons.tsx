@@ -1,12 +1,21 @@
 'use client'
 import './Buttons.css'
+import Buttonv2 from './buttonv2';
 
-function Buttons({message='test'}: {message:string}) {
-
+function Buttons() {
     return (
     <>
       <div>
-        <button className="button" ><div>{message}</div></button>
+        <Buttonv2 
+            children = "small text!"
+            type = "small"
+            onClick={() => alert('small click')}
+        />
+        <Buttonv2
+            children = "large text!"
+            type='large'
+            onClick={() => alert("LARGE CLICK")}
+        />
       </div>
     </>
   )
