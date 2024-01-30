@@ -3,14 +3,19 @@
     vertical-align: middle;
     font-size: medium;
     background-color: #1c1e2e;
-    width:110%;
+    width:100%;
     height: 8%;
-    margin: -8px;
-    text-align: center;
-    
 }
 
 .Nav h1 {
-    color: white;
-    
+    color: white; 
 }
+
+.Nav table{
+    width: 100%;
+}
+
+.Nav table th{
+    width: 33%
+}
+
