@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import './NavBar.css'
 
-function NavBar({message, children}: {message?:string, children?: ReactNode}) {
+function NavBar({title, message, children}: {title?:string, message?:string, children?: ReactNode}) {
 
   return (
     <>
@@ -12,15 +12,13 @@ function NavBar({message, children}: {message?:string, children?: ReactNode}) {
               {children}
             </th>
             <th>
-              <h1> Planets Game </h1>
+              <h1>{title}</h1>
             </th>
             <th>
               <p>{message}</p>
             </th>
           </tr>
-          
         </table>
-        
       </div>
     </>
   )

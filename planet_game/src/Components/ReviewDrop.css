@@ -1,0 +1,17 @@
+.RevDrop{
+    white-space-collapse:preserve-breaks;
+    font-size: large;
+    border-style: unset;
+    border-radius: 16px;
+  
+}
+
+.clicky{
+    user-select: none;
+}
+
+.clicky :hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.1);
+}
+
