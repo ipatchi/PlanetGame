@@ -20,10 +20,10 @@ function ReviewDrop({title, correct, question, selected, realAnswer}: {title?:st
                         <h1>{titleText || "Question"}</h1>
                     </div>
                 </div>
+                
                 <p style={{ display: showInfo ? "block" : "none" }}>{outputText}</p>
-        </div>
-        
-        
+                <br style={{ display: showInfo ? "block" : "none" } }></br>
+            </div>
         </>
     )
 }
