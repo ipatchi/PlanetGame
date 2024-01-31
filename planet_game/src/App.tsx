@@ -2,8 +2,6 @@ import './App.css';
 import CentredScreen from './Components/CentredScreen';
 import NavBar from './Components/NavBar';
 import QuestionText from './Components/QuestionText';
-import ReviewDrop from './Components/ReviewDrop';
-import CustomButton from './Components/CustomButton';
 
 function App() {
   return (
@@ -15,6 +13,10 @@ function App() {
         </NavBar>
         <CentredScreen>
           <br></br>
+
+          <QuestionText>Learn</QuestionText>
+          <Search placeholder_text="Search The Skies..."></Search>
+
           <QuestionText>Review</QuestionText>
           <ReviewDrop title = "Question 1" question='Why is mars round?' correct={true} ></ReviewDrop>
           <ReviewDrop title="Question 2" question='Why is saturn ringy?' correct={false} ></ReviewDrop>
