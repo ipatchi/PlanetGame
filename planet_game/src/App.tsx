@@ -8,6 +8,7 @@ Route
 import HomeScreen from './HomeScreen';
 import ReviewScreen from './ReviewScreen';
 import QuestionScreen from './QuestionScreen';
+import LearnScreen from './LearnScreen';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Routes>
         <Route path="/" Component={HomeScreen}></Route>
         <Route path="/Review" exact Component={ReviewScreen}></Route>
-        <Route path='/QuestionScreen' exact Component={QuestionScreen}></Route>
+        <Route path='/Question' exact Component={QuestionScreen}></Route>
+        <Route path='/Learn' exact Component={LearnScreen}></Route>
         </Routes>
       </Router>
       

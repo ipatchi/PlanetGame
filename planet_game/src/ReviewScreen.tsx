@@ -4,14 +4,19 @@ import NavBar from './Components/NavBar';
 import QuestionText from './Components/QuestionText';
 import ReviewDrop from './Components/ReviewDrop';
 import CustomButton from './Components/CustomButton';
+import { useNavigate } from "react-router-dom";
+
 
 function App() {
+    const navigate=useNavigate();    
+    const Home = () => {
+        navigate("/")
+    }
   return (
     <>
       <div>
         <NavBar title="Planet Game">
-          <CustomButton type="small" onClick={() => alert("hi")}>Click Me!</CustomButton>
-          <CustomButton type="small" onClick={() => alert("hi")}>Click Me!</CustomButton>
+          <CustomButton type="small" onClick={Home}>Home</CustomButton>
         </NavBar>
         <CentredScreen>
           <br></br>
