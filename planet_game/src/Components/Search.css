@@ -1,11 +1,35 @@
 .search {
-    font-family: inherit;
-    width:max-content;
-    border-radius: 24px;
-    padding: 3px 10px;
-    font-size: small;
-    font-weight: bolder;
-    border-color: black;
-    margin:auto;
-    text-align: center;
+  font-family: inherit;
+  width: 70%;
+
+  border-radius: 24px;
+  padding: 3px 10px;
+  font-size: medium;
+  font-weight: bolder;
+  border-color: black;
+  margin: auto;
+  text-align: center;
+  background-color: white;
+  user-select: none;
+}
+.search input {
+  width: 90%;
+  height: 50px;
+  font-size: x-large;
+}
+
+.search h2 {
+  height: 30px;
+}
+
+.result {
+  background-color: lightgray;
+  text-align: center;
+  border-radius: 16px;
+  border-style: none;
+}
+
+.result :hover {
+  cursor: pointer;
+  background-color: rgb(0, 0, 0, 0.1);
 }
