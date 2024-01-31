@@ -1,4 +1,4 @@
-import "./App.css";
+import "../../Routing/App.css";
 import CentredScreen from "../../Components/Centre/CentredScreen";
 import NavBar from "../../Components/NavBar/NavBar";
 import QuestionText from "../../Components/QuestionText/QuestionText";
@@ -22,21 +22,21 @@ function App() {
           </CustomButton>
         </NavBar>
         <CentredScreen>
-          <br></br>
           <QuestionText>Question</QuestionText>
-          <br></br>
-          <CustomButton type="XL" onClick={() => alert("ANSWER 1")}>
-            Answer 1
-          </CustomButton>
-          <CustomButton type="XL" onClick={() => alert("ANSWER 2")}>
-            Answer 2
-          </CustomButton>
-          <CustomButton type="XL" onClick={() => alert("ANSWER 3")}>
-            Answer 3
-          </CustomButton>
-          <CustomButton type="XL" onClick={() => alert("ANSWER 4")}>
-            Answer 4
-          </CustomButton>
+          <div>
+            <CustomButton type="XL" onClick={() => alert("ANSWER 1")}>
+              Answer 1
+            </CustomButton>
+            <CustomButton type="XL" onClick={() => alert("ANSWER 2")}>
+              Answer 2
+            </CustomButton>
+            <CustomButton type="XL" onClick={() => alert("ANSWER 3")}>
+              Answer 3
+            </CustomButton>
+            <CustomButton type="XL" onClick={() => alert("ANSWER 4")}>
+              Answer 4
+            </CustomButton>
+          </div>
           <CustomButton type="large" onClick={Review}>
             Continue
           </CustomButton>

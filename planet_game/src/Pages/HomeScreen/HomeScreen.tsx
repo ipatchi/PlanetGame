@@ -1,4 +1,4 @@
-import "./App.css";
+import "../../Routing/App.css";
 import CentredScreen from "../../Components/Centre/CentredScreen";
 import NavBar from "../../Components/NavBar/NavBar";
 import CustomButton from "../../Components/CustomButton/CustomButton";

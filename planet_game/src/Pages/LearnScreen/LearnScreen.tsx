@@ -1,8 +1,9 @@
-import "./App.css";
+import "../../Routing/App.css";
 import CentredScreen from "../../Components/Centre/CentredScreen";
 import NavBar from "../../Components/NavBar/NavBar";
 import CustomButton from "../../Components/CustomButton/CustomButton";
 import { useNavigate } from "react-router-dom";
+import Search from "../../Components/Search/Search";
 
 function LearnScreen() {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ function LearnScreen() {
           </CustomButton>
         </NavBar>
         <CentredScreen>
-          <br></br>
+          <Search placeholder_text="Search The Skies..."></Search>
         </CentredScreen>
       </div>
     </>
