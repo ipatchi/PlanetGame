@@ -1,6 +1,6 @@
 import React from "react";
 
-import './Buttons.css';
+import './CustomButton.css';
 
 interface Props {
   children?: React.ReactNode;
@@ -8,7 +8,7 @@ interface Props {
   onClick: () => void;
 }
 
-const Buttonv2: React.FC<Props> = ({ 
+const CustomButton: React.FC<Props> = ({ 
     children,
     type,
     onClick,
@@ -23,4 +23,4 @@ const Buttonv2: React.FC<Props> = ({
   );
 }
 
-export default Buttonv2;
+export default CustomButton;

@@ -1,7 +1,7 @@
 .button:hover {
-    background-color: lightslategrey;
+    background-color: lightsteelblue;
     border-color: #ffffff;
-    transition: background-color 0.5s ease-in;
+    transition: background-color 0.1s ease-in;
 }
 
 .button {
@@ -11,7 +11,6 @@
     font-family: inherit;
     border-color: black;
     border-radius: 24px;
-    
 }
 
 .small {
@@ -22,4 +21,15 @@
 .large{
     padding: 20px;
     font-size: large;
+}
+
+.XL{
+    padding: 30px;
+    font-size:x-large;
+}
+
+.round{
+    border-radius: 360px;
+    padding: 20px;
+    font-size: small;
 }
