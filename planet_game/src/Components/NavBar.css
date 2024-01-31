@@ -19,3 +19,8 @@
     width: 33%
 }
 
+.navChildren {
+    text-align: left;
+    padding-left: 3%;
+    vertical-align: middle;
+}

@@ -9,7 +9,10 @@ function App() {
   return (
     <>
       <div>
-        <NavBar title="Planet Game"></NavBar>
+        <NavBar title="Planet Game">
+          <CustomButton type="small" onClick={() => alert("hi")}>Click Me!</CustomButton>
+          <CustomButton type="small" onClick={() => alert("hi")}>Click Me!</CustomButton>
+        </NavBar>
         <CentredScreen>
           <br></br>
           <QuestionText>Review</QuestionText>
@@ -23,7 +26,7 @@ function App() {
         </CentredScreen>
 
       </div>
-      <img src="https://www.example.com/my-image-dir/myimage.png" />
+      
       
     </>
   )

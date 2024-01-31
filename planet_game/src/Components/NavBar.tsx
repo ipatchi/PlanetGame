@@ -8,7 +8,7 @@ function NavBar({title, message, children}: {title?:string, message?:string, chi
       <div className='Nav'>
         <table>
           <tr>
-            <th>
+            <th className='navChildren'>
               {children}
             </th>
             <th>
