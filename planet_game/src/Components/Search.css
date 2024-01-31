@@ -1,0 +1,11 @@
+.search {
+    font-family: inherit;
+    width:max-content;
+    border-radius: 24px;
+    padding: 3px 10px;
+    font-size: small;
+    font-weight: bolder;
+    border-color: black;
+    margin:auto;
+    text-align: center;
+}
