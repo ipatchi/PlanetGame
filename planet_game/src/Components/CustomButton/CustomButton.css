@@ -1,0 +1,35 @@
+.button:hover {
+  background-color: lightsteelblue;
+  border-color: #ffffff;
+  transition: background-color 0.1s ease-in;
+}
+
+.button {
+  font-weight: bolder;
+  height: auto;
+  width: auto;
+  font-family: inherit;
+  border-color: black;
+  border-radius: 24px;
+}
+
+.small {
+  padding: 10px;
+  font-size: small;
+}
+
+.large {
+  padding: 20px;
+  font-size: large;
+}
+
+.XL {
+  padding: 30px;
+  font-size: x-large;
+}
+
+.round {
+  border-radius: 360px;
+  padding: 20px;
+  font-size: small;
+}
