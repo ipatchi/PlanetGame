@@ -1,24 +1,22 @@
 import './App.css';
-import CentredScreen from './Components/CentredScreen';
-import NavBar from './Components/NavBar';
-import QuestionText from './Components/QuestionText';
-import ReviewDrop from './Components/ReviewDrop';
-import CustomButton from './Components/CustomButton';
-import HomeScreen from './HomeScreen';
 import {
 BrowserRouter as Router,
 Routes,
 Route
 } from "react-router-dom";
+
+import HomeScreen from './HomeScreen';
 import ReviewScreen from './ReviewScreen';
+import QuestionScreen from './QuestionScreen';
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
-        <Route path="/" exact Component={HomeScreen}></Route>
+        <Route path="/" Component={HomeScreen}></Route>
         <Route path="/Review" exact Component={ReviewScreen}></Route>
+        <Route path='/QuestionScreen' exact Component={QuestionScreen}></Route>
         </Routes>
       </Router>
       

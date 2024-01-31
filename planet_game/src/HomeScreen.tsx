@@ -1,32 +1,27 @@
 import './App.css';
 import CentredScreen from './Components/CentredScreen';
 import NavBar from './Components/NavBar';
-import QuestionText from './Components/QuestionText';
 import CustomButton from './Components/CustomButton';
 import { useNavigate } from "react-router-dom";
 
-function App() {
+function QuestionScreen() {
     const navigate=useNavigate();
     const Review = () => {
         navigate("/Review")
+    }
+    const Start = () => {
+        navigate("/QuestionScreen")
     }
     return (
         <>
         <div>
             <NavBar title="Planet Game">
-                <CustomButton type="small" 
-                    onClick={Review}
-                    >Review</CustomButton>
-            <CustomButton type="small" onClick={() => alert("hi")}>Click Me!</CustomButton>
+                <CustomButton type="small" onClick={Review}>Review</CustomButton>
+                <CustomButton type="small" onClick={() => alert("hi")}>Click Me!</CustomButton>
             </NavBar>
             <CentredScreen>
             <br></br>
-            <QuestionText>Review</QuestionText>
-            
-            <CustomButton type="small" onClick={() => alert("SMALL CLICK")}>Small</CustomButton>
-            <CustomButton type="large" onClick={() => alert("LARGE CLICK")}>Large</CustomButton>
-            <CustomButton type="XL" onClick={() => alert('XL CLICK')}>XL</CustomButton>
-            <CustomButton type="round" onClick={() => alert("Round CLICK")}><p>Round</p></CustomButton>
+            <CustomButton type="XL" onClick={Start}>Start</CustomButton>
             </CentredScreen>
 
         </div>
@@ -36,4 +31,4 @@ function App() {
     )
 }
 
-export default App
+export default QuestionScreen
