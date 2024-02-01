@@ -11,6 +11,7 @@
   font-family: inherit;
   border-color: black;
   border-radius: 24px;
+  margin: 2%;
 }
 
 .small {
@@ -26,6 +27,7 @@
 .XL {
   padding: 30px;
   font-size: x-large;
+  min-width: 30%;
 }
 
 .round {

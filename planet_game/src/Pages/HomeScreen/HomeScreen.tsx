@@ -1,16 +1,16 @@
-import "../../Routing/App.css";
-import CentredScreen from "../../Components/Centre/CentredScreen";
-import NavBar from "../../Components/NavBar/NavBar";
-import CustomButton from "../../Components/CustomButton/CustomButton";
-import { useNavigate } from "react-router-dom";
+import '../../Routing/App.css';
+import CentredScreen from '../../Components/Centre/CentredScreen';
+import NavBar from '../../Components/NavBar/NavBar';
+import CustomButton from '../../Components/CustomButton/CustomButton';
+import { useNavigate } from 'react-router-dom';
 
-function QuestionScreen() {
+const QuestionScreen = () => {
   const navigate = useNavigate();
   const Learn = () => {
-    navigate("/Learn");
+    navigate('/Learn');
   };
   const Start = () => {
-    navigate("/Question");
+    navigate('/Question');
   };
   return (
     <>
@@ -29,6 +29,6 @@ function QuestionScreen() {
       </div>
     </>
   );
-}
+};
 
 export default QuestionScreen;

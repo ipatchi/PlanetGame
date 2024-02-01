@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import "./NavBar.css";
+import { ReactNode } from 'react';
+import './NavBar.css';
 
 const NavBar = ({
   title,

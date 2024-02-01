@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import "./CustomButton.css";
+import './CustomButton.css';
 
 interface Props {
   children?: React.ReactNode;
