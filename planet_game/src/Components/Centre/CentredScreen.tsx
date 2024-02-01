@@ -1,13 +1,13 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
-function CentredScreen({ children }: { children?: ReactNode }) {
+const CentredScreen = ({ children }: { children?: ReactNode }) => {
   return (
     <>
-      <div style={{ margin: "auto", width: "50%", textAlign: "center" }}>
+      <div style={{ margin: 'auto', width: '50%', textAlign: 'center' }}>
         {children}
       </div>
     </>
   );
-}
+};
 
 export default CentredScreen;
