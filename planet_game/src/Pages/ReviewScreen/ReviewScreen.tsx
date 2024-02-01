@@ -1,16 +1,17 @@
-import "../../Routing/App.css";
-import CentredScreen from "../../Components/Centre/CentredScreen";
-import NavBar from "../../Components/NavBar/NavBar";
-import QuestionText from "../../Components/QuestionText/QuestionText";
-import ReviewDrop from "../../Components/ReviewDrop/ReviewDrop";
-import CustomButton from "../../Components/CustomButton/CustomButton";
-import { useNavigate } from "react-router-dom";
+import '../../Routing/App.css';
+import CentredScreen from '../../Components/Centre/CentredScreen';
+import NavBar from '../../Components/NavBar/NavBar';
+import QuestionText from '../../Components/QuestionText/QuestionText';
+import ReviewDrop from '../../Components/ReviewDrop/ReviewDrop';
+import CustomButton from '../../Components/CustomButton/CustomButton';
+import { useNavigate } from 'react-router-dom';
 
-function App() {
+const App = () => {
   const navigate = useNavigate();
   const Home = () => {
-    navigate("/");
+    navigate('/');
   };
+
   return (
     <>
       <div>
@@ -36,6 +37,6 @@ function App() {
       </div>
     </>
   );
-}
+};
 
 export default App;

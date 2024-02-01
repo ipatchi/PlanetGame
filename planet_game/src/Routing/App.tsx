@@ -6,7 +6,7 @@ import ReviewScreen from '../Pages/ReviewScreen/ReviewScreen';
 import QuestionScreen from '../Pages/QuestionScreen/QuestionScreen';
 import LearnScreen from '../Pages/LearnScreen/LearnScreen';
 
-function App() {
+const App = () => {
   return (
     <>
       <Router>
@@ -19,6 +19,6 @@ function App() {
       </Router>
     </>
   );
-}
+};
 
 export default App;

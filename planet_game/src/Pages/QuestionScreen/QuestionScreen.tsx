@@ -5,7 +5,7 @@ import QuestionText from '../../Components/QuestionText/QuestionText';
 import CustomButton from '../../Components/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
 
-function App() {
+const App = () => {
   const navigate = useNavigate();
   const Review = () => {
     navigate('/Review');
@@ -49,6 +49,6 @@ function App() {
       </div>
     </>
   );
-}
+};
 
 export default App;
