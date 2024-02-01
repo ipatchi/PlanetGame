@@ -1,10 +1,10 @@
-import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import HomeScreen from "../Pages/HomeScreen/HomeScreen";
-import ReviewScreen from "../Pages/ReviewScreen/ReviewScreen";
-import QuestionScreen from "../Pages/QuestionScreen/QuestionScreen";
-import LearnScreen from "../Pages/LearnScreen/LearnScreen";
+import HomeScreen from '../Pages/HomeScreen/HomeScreen';
+import ReviewScreen from '../Pages/ReviewScreen/ReviewScreen';
+import QuestionScreen from '../Pages/QuestionScreen/QuestionScreen';
+import LearnScreen from '../Pages/LearnScreen/LearnScreen';
 
 function App() {
   return (
