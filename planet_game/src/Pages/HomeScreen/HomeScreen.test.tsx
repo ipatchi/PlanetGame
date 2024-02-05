@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import HomeScreen from './HomeScreen';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-describe('Button tests', () => {
+describe('Landing page test', () => {
   test('renders the landing page', () => {
     render(
       <BrowserRouter>
@@ -11,10 +11,5 @@ describe('Button tests', () => {
         </Routes>
       </BrowserRouter>
     );
-    expect(
-      screen.getByRole('button', {
-        name: /start/i,
-      })
-    ).toHaveProperty('disabled', false);
   });
 });

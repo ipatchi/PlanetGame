@@ -38,3 +38,4 @@ yarn add --dev jest
 yarn add --dev @testing-library/react
 yarn add -D @testing-library/jest-dom
 yarn add -D @types/jest
+yarn add -D vitest
