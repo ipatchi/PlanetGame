@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import CustomButton from './CustomButton';
 
-describe('Button test', () => {
-  test('tests the button works', () => {
+describe('Button Tests', () => {
+  test('A test to examine whether or not that the button works as intended.', () => {
     render(
       <CustomButton
         type={''}
