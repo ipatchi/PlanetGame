@@ -7,8 +7,10 @@
   height: 8%;
 }
 
-.Nav h1 {
+.Nav h1,
+p {
   color: white;
+  user-select: none;
 }
 
 .Nav table {
