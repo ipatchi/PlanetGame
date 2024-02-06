@@ -21,6 +21,7 @@
 }
 .search input:focus {
   outline:none;
+  background-color: whitesmoke;
 }
 .search h2 {
   padding-top: 3px;

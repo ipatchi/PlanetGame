@@ -1,0 +1,11 @@
+.info {
+  font-family: inherit;
+  width: 55%;
+
+  border-radius: 24px;
+  padding: 10px;
+  font-size: medium;
+  font-weight: bolder;
+  background-color: white;
+  margin: 12px;
+}

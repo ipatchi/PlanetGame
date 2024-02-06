@@ -4,13 +4,13 @@ import NavBar from '../../Components/NavBar/NavBar';
 import CustomButton from '../../Components/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
 import Search from '../../Components/Search/Search';
+import Info from '../../Components/Info/info';
 
 const LearnScreen = () => {
   const navigate = useNavigate();
   const Review = () => {
     navigate('/');
   };
-
   return (
     <>
       <div>
@@ -20,10 +20,14 @@ const LearnScreen = () => {
           </CustomButton>
         </NavBar>
         <CentredScreen>
-          <div className='gap'>
+          <div className="gap">
             <Search placeholder_text="Search The Skies..."></Search>
           </div>
         </CentredScreen>
+        <div className="info">
+          <Info>
+          </Info>
+        </div>
       </div>
     </>
   );
