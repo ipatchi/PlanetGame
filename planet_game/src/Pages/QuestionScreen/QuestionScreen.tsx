@@ -48,8 +48,8 @@ const App = () => {
                 <QuestionText>{question}</QuestionText>
               </div>
               <div>
-                {listedAnswers.map((ans) => (
-                  <CustomButton type="large" onClick={() => alert('hi')}>
+                {listedAnswers.map((ans, i) => (
+                  <CustomButton type="XL" onClick={() => alert(i)}>
                     {ans}
                   </CustomButton>
                 ))}

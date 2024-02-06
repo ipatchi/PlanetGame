@@ -6,11 +6,12 @@ class myplanet {
 }
 
 const getData = async () => {
-  const resp = await axios(
+  const resp = await axios.get(
     'http://localhost:8080/planet/53c7df4d7da25e4a0c374262208d133c'
   );
   const mars = new myplanet();
   mars.density = resp.data.density;
+
   console.log(mars.density);
   return mars.density;
 };
