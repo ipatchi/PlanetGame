@@ -25,7 +25,7 @@ const LearnScreen = () => {
           </div>
         </CentredScreen>
         <div className="info">
-          <Info>
+          <Info>This is some text
           </Info>
         </div>
       </div>
