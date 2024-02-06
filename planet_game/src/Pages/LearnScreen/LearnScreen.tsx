@@ -20,7 +20,9 @@ const LearnScreen = () => {
           </CustomButton>
         </NavBar>
         <CentredScreen>
-          <Search placeholder_text="Search The Skies..."></Search>
+          <div className='gap'>
+            <Search placeholder_text="Search The Skies..."></Search>
+          </div>
         </CentredScreen>
       </div>
     </>

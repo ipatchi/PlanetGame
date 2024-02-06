@@ -18,10 +18,11 @@ const QuestionScreen = () => {
         <NavBar title="Planet Game"></NavBar>
         <CentredScreen>
           {/* use padding for breaks*/}
+          <div className="gap"></div>
           <CustomButton type="XL" onClick={Start}>
             Start
           </CustomButton>
-
+          <div></div>
           <CustomButton type="XL" onClick={Learn}>
             Learn
           </CustomButton>
