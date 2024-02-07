@@ -4,8 +4,12 @@ import NavBar from '../../Components/NavBar/NavBar';
 import QuestionText from '../../Components/QuestionText/QuestionText';
 import CustomButton from '../../Components/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
+import getAttributes from '../../API calls/Attributes';
+import { useEffect, useState } from 'react';
 
 const App = () => {
+  const [listedAttributes, setListedAttributes] = useState<string | null>(null);
+
   const navigate = useNavigate();
   const Review = () => {
     navigate('/Review');
@@ -14,8 +18,18 @@ const App = () => {
     navigate('/');
   };
 
+  const getAtt = async () => {
+    const attributes: string[] = await getAttributes();
+    const attribute: string = attributes[4];
+    setListedAttributes(attribute);
+  };
+
+  useEffect(() => {
+    getAtt();
+  }, []);
+
   //Mock Parameters:
-  const question = 'What is the density of Mars?';
+  const question = `What is the ${listedAttributes} of Mars?`;
   const answers = [1.234, 10.56, 300.72, 7];
   const question_num = 1;
   const num_questions = 5;
