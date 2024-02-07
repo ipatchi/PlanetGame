@@ -6,9 +6,17 @@ import CustomButton from '../../Components/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
 import getAttributes from '../../API calls/Attributes';
 import { useEffect, useState } from 'react';
+import { newQuestions } from './QuestionGenerator';
+        
+  
+
 
 const App = () => {
+  const [listedAnswers, setListedAnswers] = useState<string[] | null>(null);
+  const [question, setQuestion] = useState<string | null>(null);
   const [listedAttributes, setListedAttributes] = useState<string | null>(null);
+
+  //Navigation Routing
 
   const navigate = useNavigate();
   const Review = () => {
@@ -17,6 +25,7 @@ const App = () => {
   const Home = () => {
     navigate('/');
   };
+
 
   const getAtt = async () => {
     const attributes: string[] = await getAttributes();
@@ -28,18 +37,20 @@ const App = () => {
     getAtt();
   }, []);
 
-  //Mock Parameters:
-  const question = `What is the ${listedAttributes} of Mars?`;
-  const answers = [1.234, 10.56, 300.72, 7];
+  //Get Question
+  const doQuestions = async () => {
+    const questionArray = await newQuestions(1);
+    setQuestion(questionArray[0].questionText);
+    setListedAnswers(questionArray[0].all_answers);
+  };
+
+  useEffect(() => {
+    doQuestions();
+  }, []);
+
   const question_num = 1;
   const num_questions = 5;
   const header_message = question_num + ' / ' + num_questions;
-
-  const listedAnswers = answers.map((ans) => (
-    <CustomButton type="XL" onClick={() => alert('ANSWER 1')}>
-      {ans}
-    </CustomButton>
-  ));
 
   return (
     <>
@@ -49,16 +60,27 @@ const App = () => {
             Home
           </CustomButton>
         </NavBar>
+        <p></p>
         <CentredScreen>
-          <div style={{ marginTop: '8%', marginBottom: '8%' }}>
-            <QuestionText>{question}</QuestionText>
-          </div>
-          <div>{listedAnswers}</div>
-          <div style={{ marginTop: '20%' }}>
-            <CustomButton type="large" onClick={Review}>
-              Continue
-            </CustomButton>
-          </div>
+          {listedAnswers && (
+            <>
+              <div style={{ marginTop: '8%', marginBottom: '8%' }}>
+                <QuestionText>{question}</QuestionText>
+              </div>
+              <div>
+                {listedAnswers.map((ans, i) => (
+                  <CustomButton type="XL" onClick={() => alert(i)}>
+                    {ans}
+                  </CustomButton>
+                ))}
+              </div>
+              <div style={{ marginTop: '20%' }}>
+                <CustomButton type="large" onClick={Review}>
+                  Continue
+                </CustomButton>
+              </div>
+            </>
+          )}
         </CentredScreen>
       </div>
     </>
