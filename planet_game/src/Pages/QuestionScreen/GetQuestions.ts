@@ -11,8 +11,6 @@ const getData = async () => {
   );
   const mars = new myplanet();
   mars.density = resp.data.density;
-
-  console.log(mars.density);
   return mars.density;
 };
 
@@ -22,4 +20,4 @@ const getAnswers = async () => {
   return answers;
 };
 
-export default getAnswers;
+export { getAnswers };
