@@ -4,14 +4,20 @@ import NavBar from '../../Components/NavBar/NavBar';
 import QuestionText from '../../Components/QuestionText/QuestionText';
 import CustomButton from '../../Components/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
+import getAttributes from '../../API calls/Attributes';
 import { useEffect, useState } from 'react';
 import { newQuestions } from './QuestionGenerator';
+        
+  
+
 
 const App = () => {
   const [listedAnswers, setListedAnswers] = useState<string[] | null>(null);
   const [question, setQuestion] = useState<string | null>(null);
+  const [listedAttributes, setListedAttributes] = useState<string | null>(null);
 
   //Navigation Routing
+
   const navigate = useNavigate();
   const Review = () => {
     navigate('/Review');
@@ -19,6 +25,17 @@ const App = () => {
   const Home = () => {
     navigate('/');
   };
+
+
+  const getAtt = async () => {
+    const attributes: string[] = await getAttributes();
+    const attribute: string = attributes[4];
+    setListedAttributes(attribute);
+  };
+
+  useEffect(() => {
+    getAtt();
+  }, []);
 
   //Get Question
   const doQuestions = async () => {
