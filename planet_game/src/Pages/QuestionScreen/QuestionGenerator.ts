@@ -1,3 +1,4 @@
+import getAttributes from '../../API/Attributes';
 import getPlanetNames from '../../API/getPlanetNames';
 import randomInRange from '../../rng';
 
@@ -11,7 +12,9 @@ const getRandomPlanet = async () => {
 
 const getRandomAttribute = async () => {
   //API call for all attributes, then randomise
-  return 'DENSITY';
+  const attributes: string[] = await getAttributes();
+  const attribute: string = attributes[randomInRange(0, attributes.length - 1)];
+  return attribute;
 };
 
 type Question = {
