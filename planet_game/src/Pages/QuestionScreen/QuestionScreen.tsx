@@ -4,12 +4,14 @@ import NavBar from '../../Components/NavBar/NavBar';
 import QuestionText from '../../Components/QuestionText/QuestionText';
 import CustomButton from '../../Components/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
-import getAnswers from './GetQuestions';
 import { useEffect, useState } from 'react';
+import { newQuestions } from './QuestionGenerator';
 
 const App = () => {
   const [listedAnswers, setListedAnswers] = useState<string[] | null>(null);
+  const [question, setQuestion] = useState<string | null>(null);
 
+  //Navigation Routing
   const navigate = useNavigate();
   const Review = () => {
     navigate('/Review');
@@ -18,17 +20,17 @@ const App = () => {
     navigate('/');
   };
 
-  //Mock Parameters:
-  const getStuff = async () => {
-    const answers = await getAnswers();
-    setListedAnswers(answers);
+  //Get Question
+  const doQuestions = async () => {
+    const questionArray = await newQuestions(1);
+    setQuestion(questionArray[0].questionText);
+    setListedAnswers(questionArray[0].all_answers);
   };
 
   useEffect(() => {
-    getStuff();
+    doQuestions();
   }, []);
 
-  const question = 'What is the density of Mars?';
   const question_num = 1;
   const num_questions = 5;
   const header_message = question_num + ' / ' + num_questions;
@@ -41,6 +43,7 @@ const App = () => {
             Home
           </CustomButton>
         </NavBar>
+        <p></p>
         <CentredScreen>
           {listedAnswers && (
             <>
@@ -48,8 +51,8 @@ const App = () => {
                 <QuestionText>{question}</QuestionText>
               </div>
               <div>
-                {listedAnswers.map((ans) => (
-                  <CustomButton type="large" onClick={() => alert('hi')}>
+                {listedAnswers.map((ans, i) => (
+                  <CustomButton type="XL" onClick={() => alert(i)}>
                     {ans}
                   </CustomButton>
                 ))}
