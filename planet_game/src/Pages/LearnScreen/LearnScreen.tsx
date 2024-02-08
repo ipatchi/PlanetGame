@@ -8,9 +8,10 @@ import Info from '../../Components/Info/info';
 import { useEffect, useState } from 'react';
 import allDetails from '../../API/getAllDetails';
 import getAttributes from '../../API/Attributes';
+import './LearnScreen.css'
 
 const LearnScreen = () => {
-  const [listedDetails, setListedDetails] = useState<string | null>(null);
+  const [listedDetails, setListedDetails] = useState<{[index: string]:string} | null>(null);
   const [listedAttributes, setListedAttributes] = useState<string[] | null>(null);
 
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ const LearnScreen = () => {
           </div>
         </CentredScreen>
         <div className="info">
-          {listedDetails && (
+          {listedDetails && listedAttributes && (
             <Info>
               <CentredScreen>
                 <h2>{listedDetails.name}</h2>

@@ -18,7 +18,7 @@ const allDetails = async () => {
   const res = await axios.get(
     'http://localhost:8080/planet/' + end
   );
-  const b: string = res.data;
+  const b: {[index: string] : string} = res.data;
   return b;
 };
 
