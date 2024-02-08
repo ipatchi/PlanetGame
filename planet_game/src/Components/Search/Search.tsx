@@ -1,11 +1,21 @@
 import { useState } from 'react';
 import './Search.css';
 
-const Search = ({ placeholder_text }: { placeholder_text?: string }) => {
+const Search = ({
+  placeholder_text,
+  item_list,
+}: {
+  placeholder_text?: string;
+  item_list: string[];
+}) => {
+  //List of things and usestate for the filtered list, and whether the list should be displayed or not
+  const [showList, setShowList] = useState(false);
+  const [filteredList, setFilteredList] = useState(item_list);
+
   //Function which handles any changes to the input box - resulting in changing the filter of shown planets
   const typingHandler = (value: string) => {
     setFilteredList([
-      ...list.filter((planet) =>
+      ...item_list.filter((planet) =>
         planet.toLowerCase().includes(value.toLowerCase())
       ),
     ]);
@@ -21,20 +31,6 @@ const Search = ({ placeholder_text }: { placeholder_text?: string }) => {
   //Basic functions to show/hide the list that can be called from various times
   const doShowList = () => setShowList(true);
   const doHideList = () => setShowList(false);
-
-  //List of things and usestate for the filtered list, and whether the list should be displayed or not
-  const list = [
-    'Mercury',
-    'Venus',
-    'Earth',
-    'Mars',
-    'Jupiter',
-    'Saturn',
-    'Uranus',
-    'Neptune',
-  ];
-  const [showList, setShowList] = useState(false);
-  const [filteredList, setFilteredList] = useState(list);
 
   //Return all of the list items as h2 elements with their respective elements from the list
   const displayedList = filteredList.map((data) => {
