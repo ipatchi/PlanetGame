@@ -10,6 +10,7 @@ import { newQuestions } from './QuestionGenerator';
 const App = () => {
   const [listedAnswers, setListedAnswers] = useState<string[] | null>(null);
   const [question, setQuestion] = useState<string | null>(null);
+  const [correctOption, setCorrectOption] = useState<number | null>(null);
 
   //Navigation Routing
 
@@ -26,6 +27,13 @@ const App = () => {
     const questionArray = await newQuestions(1);
     setQuestion(questionArray[0].questionText);
     setListedAnswers(questionArray[0].all_answers);
+    setCorrectOption(0); //Needs updating with correct option that lines up with the answers
+  };
+
+  const submitAns = (selected: number) => {
+    if (selected === correctOption) {
+      console.log('Correct!');
+    }
   };
 
   useEffect(() => {
@@ -53,7 +61,7 @@ const App = () => {
               </div>
               <div>
                 {listedAnswers.map((ans, i) => (
-                  <CustomButton type="XL" onClick={() => alert(i)}>
+                  <CustomButton type="XL" onClick={() => submitAns(i)}>
                     {ans}
                   </CustomButton>
                 ))}
