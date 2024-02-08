@@ -7,16 +7,19 @@ import Search from '../../Components/Search/Search';
 import Info from '../../Components/Info/info';
 import getPlanetNames from '../../API/getPlanetNames';
 import { useEffect, useState } from 'react';
+import allDetails from '../../API/getAllDetails';
 
 const LearnScreen = () => {
   const [planetNames, setPlanetNames] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+   const [listedDetails, setListedDetails] = useState<string | null>(null);
 
   //Navigation
   const navigate = useNavigate();
   const Review = () => {
     navigate('/');
   };
+
 
   //Planet API Call
   useEffect(() => {
@@ -31,6 +34,16 @@ const LearnScreen = () => {
     setIsLoading(false);
     console.log('did the other bit');
   };
+
+  const showDetails = async () => {
+    const detailsArray = JSON.stringify( await allDetails());
+    setListedDetails(detailsArray);
+  };
+
+  useEffect(() => {
+    showDetails();
+  }, []);
+
   return (
     <>
       <div>
@@ -52,7 +65,8 @@ const LearnScreen = () => {
           </div>
         </CentredScreen>
         <div className="info">
-          <Info>This is some text</Info>
+          <Info>This is some text {listedDetails}
+          </Info>
         </div>
       </div>
     </>
