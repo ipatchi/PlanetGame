@@ -9,11 +9,15 @@ import getPlanetNames from '../../API/getPlanetNames';
 import { useEffect, useState } from 'react';
 import allDetails from '../../API/getAllDetails';
 import getAttributes from '../../API/Attributes';
-import './LearnScreen.css'
+import './LearnScreen.css';
 
 const LearnScreen = () => {
-  const [listedDetails, setListedDetails] = useState<{[index: string]:string} | null>(null);
-  const [listedAttributes, setListedAttributes] = useState<string[] | null>(null);
+  const [listedDetails, setListedDetails] = useState<{
+    [index: string]: string;
+  } | null>(null);
+  const [listedAttributes, setListedAttributes] = useState<string[] | null>(
+    null
+  );
   const [planetNames, setPlanetNames] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,7 +26,6 @@ const LearnScreen = () => {
   const Review = () => {
     navigate('/');
   };
-
 
   //Planet API Call
   useEffect(() => {
@@ -81,7 +84,7 @@ const LearnScreen = () => {
               <CentredScreen>
                 <h2>{listedDetails.name}</h2>
               </CentredScreen>
-              {listedAttributes.map((entry:string) => (
+              {listedAttributes.map((entry: string) => (
                 <p>
                   {entry} : {listedDetails[entry]}
                 </p>
