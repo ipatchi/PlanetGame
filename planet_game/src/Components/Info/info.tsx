@@ -8,9 +8,9 @@ interface Props {
 
 const Info: React.FC<Props> = ({ children}) => {
   return (
-    <p>
+    <div>
       {children}
-    </p>
+    </div>
   );
 };
 
