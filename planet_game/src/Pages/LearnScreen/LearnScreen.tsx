@@ -16,13 +16,13 @@ const LearnScreen = () => {
   const [listedAttributes, setListedAttributes] = useState<string[] | null>(null);
   const [planetNames, setPlanetNames] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+   const [listedDetails, setListedDetails] = useState<string | null>(null);
 
   //Navigation
   const navigate = useNavigate();
   const Review = () => {
     navigate('/');
   };
-
 
   //Planet API Call
   useEffect(() => {
@@ -39,13 +39,8 @@ const LearnScreen = () => {
   };
 
   const showDetails = async () => {
-    const details = await allDetails();
-    setListedDetails(details);
-  };
-
-  const getAllAttributes = async () => {
-    const attributes: string[] = await getAttributes();
-    setListedAttributes(attributes);
+    const detailsArray = JSON.stringify( await allDetails());
+    setListedDetails(detailsArray);
   };
 
   useEffect(() => {
@@ -76,18 +71,8 @@ const LearnScreen = () => {
           </div>
         </CentredScreen>
         <div className="info">
-          {listedDetails && listedAttributes && (
-            <Info>
-              <CentredScreen>
-                <h2>{listedDetails.name}</h2>
-              </CentredScreen>
-              {listedAttributes.map((entry:string) => (
-                <p>
-                  {entry} : {listedDetails[entry]}
-                </p>
-              ))}
-            </Info>
-          )}
+          <Info>This is some text {listedDetails}
+          </Info>
         </div>
       </div>
     </>
