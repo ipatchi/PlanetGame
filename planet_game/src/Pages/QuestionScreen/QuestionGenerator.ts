@@ -31,7 +31,7 @@ const newQuestions = async (num_questions: number) => {
     const planet = await getRandomPlanet();
     const attribuite = await getRandomAttribute();
 
-    const question = 'What is the ' + attribuite + ' of ' + planet; //Question format
+    const question = 'What is the ' + attribuite + ' of ' + planet + '?'; //Question format
     const Q: Question = {
       questionText: question,
       answerText: 'answer',
