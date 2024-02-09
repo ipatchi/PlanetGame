@@ -26,7 +26,6 @@ const Search = ({
 
   //Function to send the submitted choice back to the caller - just an alert for now
   const submitChoiceHandler = (value: string) => {
-    alert('Click from planet ' + value);
     call_on_click(value);
     doHideList();
   };

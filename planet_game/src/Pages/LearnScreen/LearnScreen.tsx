@@ -20,7 +20,7 @@ const LearnScreen = () => {
   );
   const [planetNames, setPlanetNames] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [name, setName] = useState<string>("");
+  const [name, setName] = useState<string>('');
 
   //Navigation
   const navigate = useNavigate();
@@ -75,23 +75,25 @@ const LearnScreen = () => {
               <Search
                 item_list={planetNames}
                 placeholder_text="Search The Skies..."
-                call_on_click = {(value) => setName(value)}
+                call_on_click={(value) => setName(value)}
               ></Search>
             )}
           </div>
         </CentredScreen>
-        <div className="info">
+        <div>
           {listedDetails && listedAttributes && (
-            <Info>
-              <CentredScreen>
-                <h2 className='title'>{listedDetails.name}</h2>
-              </CentredScreen>
-              {listedAttributes.map((entry: string) => (
-                <p>
-                  {entry} : {listedDetails[entry]}
-                </p>
-              ))}
-            </Info>
+            <p className="info">
+              <Info>
+                <CentredScreen>
+                  <h2 className="title">{listedDetails.name}</h2>
+                </CentredScreen>
+                {listedAttributes.map((entry: string) => (
+                  <p>
+                    {entry} : {listedDetails[entry]}
+                  </p>
+                ))}
+              </Info>
+            </p>
           )}
         </div>
       </div>
