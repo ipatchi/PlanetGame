@@ -20,7 +20,6 @@ const LearnScreen = () => {
   );
   const [planetNames, setPlanetNames] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [listedDetails, setListedDetails] = useState<string | null>(null);
 
   //Navigation
   const navigate = useNavigate();
@@ -43,8 +42,13 @@ const LearnScreen = () => {
   };
 
   const showDetails = async () => {
-    const detailsArray = JSON.stringify(await allDetails());
-    setListedDetails(detailsArray);
+    const details = await allDetails();
+    setListedDetails(details);
+  };
+
+  const getAllAttributes = async () => {
+    const attributes: string[] = await getAttributes();
+    setListedAttributes(attributes);
   };
 
   useEffect(() => {
