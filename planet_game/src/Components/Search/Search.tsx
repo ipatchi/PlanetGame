@@ -4,9 +4,11 @@ import './Search.css';
 const Search = ({
   placeholder_text,
   item_list,
+  call_on_click,
 }: {
   placeholder_text?: string;
   item_list: string[];
+  call_on_click: (value:string) => void;
 }) => {
   //List of things and usestate for the filtered list, and whether the list should be displayed or not
   const [showList, setShowList] = useState(false);
@@ -25,6 +27,7 @@ const Search = ({
   //Function to send the submitted choice back to the caller - just an alert for now
   const submitChoiceHandler = (value: string) => {
     alert('Click from planet ' + value);
+    call_on_click(value);
     doHideList();
   };
 

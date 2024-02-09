@@ -20,6 +20,7 @@ const LearnScreen = () => {
   );
   const [planetNames, setPlanetNames] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [name, setName] = useState<string>("");
 
   //Navigation
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ const LearnScreen = () => {
   };
 
   const showDetails = async () => {
-    const details = await allDetails();
+    const details = await allDetails(name);
     setListedDetails(details);
   };
 
@@ -54,7 +55,7 @@ const LearnScreen = () => {
   useEffect(() => {
     showDetails();
     getAllAttributes();
-  }, []);
+  }, [name]);
 
   console.log({ listedDetails });
 
@@ -74,6 +75,7 @@ const LearnScreen = () => {
               <Search
                 item_list={planetNames}
                 placeholder_text="Search The Skies..."
+                call_on_click = {(value) => setName(value)}
               ></Search>
             )}
           </div>
@@ -82,7 +84,7 @@ const LearnScreen = () => {
           {listedDetails && listedAttributes && (
             <Info>
               <CentredScreen>
-                <h2>{listedDetails.name}</h2>
+                <h2 className='title'>{listedDetails.name}</h2>
               </CentredScreen>
               {listedAttributes.map((entry: string) => (
                 <p>

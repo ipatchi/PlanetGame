@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-const planetName = 'jupiter';
 
 const postDetailsRequest = async (planetName: string) => {
   const req = await axios.post('http://localhost:8080/planet/search', {
@@ -12,13 +11,11 @@ const postDetailsRequest = async (planetName: string) => {
   return key;
 };
 
-const allDetails = async () => {
+const allDetails = async (planetName: string) => {
   const end = await postDetailsRequest(planetName);
-  console.log(end)
-  const res = await axios.get(
-    'http://localhost:8080/planet/' + end
-  );
-  const b: {[index: string] : string} = res.data;
+  console.log(end);
+  const res = await axios.get('http://localhost:8080/planet/' + end);
+  const b: { [index: string]: string } = res.data;
   return b;
 };
 
