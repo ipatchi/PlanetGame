@@ -34,15 +34,14 @@ const LearnScreen = () => {
 
   const getPlanetCall = async () => {
     const names = await getPlanetNames();
-    console.log('did that bit');
+
     setPlanetNames(names);
-    console.log('did this bit');
+
     setIsLoading(false);
-    console.log('did the other bit');
   };
 
   const showDetails = async () => {
-    const details = await allDetails();
+    const details = await allDetails('Jupiter');
     setListedDetails(details);
   };
 
@@ -55,8 +54,6 @@ const LearnScreen = () => {
     showDetails();
     getAllAttributes();
   }, []);
-
-  console.log({ listedDetails });
 
   return (
     <>
