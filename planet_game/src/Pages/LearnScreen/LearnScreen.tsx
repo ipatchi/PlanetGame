@@ -9,14 +9,17 @@ import getPlanetNames from '../../API/getPlanetNames';
 import { useEffect, useState } from 'react';
 import allDetails from '../../API/getAllDetails';
 import getAttributes from '../../API/Attributes';
-import './LearnScreen.css'
+import './LearnScreen.css';
 
 const LearnScreen = () => {
-  const [listedDetails, setListedDetails] = useState<{[index: string]:string} | null>(null);
-  const [listedAttributes, setListedAttributes] = useState<string[] | null>(null);
+  const [listedDetails, setListedDetails] = useState<{
+    [index: string]: string;
+  } | null>(null);
+  const [listedAttributes, setListedAttributes] = useState<string[] | null>(
+    null
+  );
   const [planetNames, setPlanetNames] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-   const [listedDetails, setListedDetails] = useState<string | null>(null);
 
   //Navigation
   const navigate = useNavigate();
@@ -39,8 +42,13 @@ const LearnScreen = () => {
   };
 
   const showDetails = async () => {
-    const detailsArray = JSON.stringify( await allDetails());
-    setListedDetails(detailsArray);
+    const details = await allDetails();
+    setListedDetails(details);
+  };
+
+  const getAllAttributes = async () => {
+    const attributes: string[] = await getAttributes();
+    setListedAttributes(attributes);
   };
 
   useEffect(() => {
@@ -71,8 +79,18 @@ const LearnScreen = () => {
           </div>
         </CentredScreen>
         <div className="info">
-          <Info>This is some text {listedDetails}
-          </Info>
+          {listedDetails && listedAttributes && (
+            <Info>
+              <CentredScreen>
+                <h2>{listedDetails.name}</h2>
+              </CentredScreen>
+              {listedAttributes.map((entry: string) => (
+                <p>
+                  {entry} : {listedDetails[entry]}
+                </p>
+              ))}
+            </Info>
+          )}
         </div>
       </div>
     </>
