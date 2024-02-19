@@ -30,11 +30,18 @@ const App = () => {
 
   //Get Question
   const loadQuestions = async (numberOfQuestions: number) => {
-    await setQuestionArray(await newQuestions(numberOfQuestions));
+    const arr = await newQuestions(numberOfQuestions);
+    console.log(arr);
+
+    setQuestionArray(arr);
+    for (let i=0; i< arr.length; i++) {
+      questionArray.push(arr[i]);
+    }
+    console.log('This is the question array: '+ questionArray);
     console.log(questionArray);
-    newQuestion(0);
+
+    await newQuestion(0);
     setIsLoading(false);
-    console.log('dfghdjfh');
   };
 
   const newQuestion = async (num: number) => {
