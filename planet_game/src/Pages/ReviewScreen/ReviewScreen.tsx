@@ -7,6 +7,7 @@ import CustomButton from '../../Components/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
 
 const App = () => {
+  // Page navigation
   const navigate = useNavigate();
   const Home = () => {
     navigate('/');
