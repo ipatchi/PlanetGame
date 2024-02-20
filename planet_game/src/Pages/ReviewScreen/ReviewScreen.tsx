@@ -19,9 +19,6 @@ const App = () => {
     <>
       <div>
         <NavBar title="Planet Game">
-          <CustomButton type="small" onClick={Home}>
-            Home
-          </CustomButton>
         </NavBar>
         <CentredScreen>
           <br></br>
@@ -36,6 +33,11 @@ const App = () => {
                 correct={i.correct}
               ></ReviewDrop>
             ))}
+          </div>
+          <div style={{ marginTop: '20%' }}>
+            <CustomButton type="large" onClick={Home}>
+              Continue
+            </CustomButton>
           </div>
         </CentredScreen>
       </div>
