@@ -28,9 +28,7 @@ const getAttribute = async (attribute: string, planet: string) => {
   return allInfoByAttribute[attribute];
 };
 
-
-
-const newQuestions = async (num_questions: number) => {
+const newQuestionDeck = async (num_questions: number) => {
   const questionArray: Question[] = []; //Array to contain each 'question'
   for (let i = 0; i < num_questions; i++) {
     //Repeat for the number of questions needed
@@ -65,4 +63,4 @@ const newQuestions = async (num_questions: number) => {
   return questionArray;
 };
 
-export { newQuestions };
+export { newQuestionDeck };
