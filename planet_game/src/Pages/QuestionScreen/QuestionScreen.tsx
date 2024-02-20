@@ -5,11 +5,15 @@ import QuestionText from '../../Components/QuestionText/QuestionText';
 import CustomButton from '../../Components/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { newQuestions } from './QuestionGenerator';
+import { newQuestionDeck } from './QuestionGenerator';
+import Question from './QuestionType';
 
 const App = () => {
-  const [listedAnswers, setListedAnswers] = useState<string[] | null>(null);
-  const [question, setQuestion] = useState<string | null>(null);
+  const [questionArray, setQuestionArray] = useState<Question[]>([]);
+  const [currentQuestionNum, setCurrentQuestionNum] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const numberOfQuestions = 3;
 
   //Navigation Routing
 
@@ -22,19 +26,37 @@ const App = () => {
   };
 
   //Get Question
-  const doQuestions = async () => {
-    const questionArray = await newQuestions(1);
-    setQuestion(questionArray[0].questionText);
-    setListedAnswers(questionArray[0].all_answers);
+  const loadQuestions = async (numberOfQuestions: number) => {
+    const arr = await newQuestionDeck(numberOfQuestions);
+    setQuestionArray(arr);
+    newQuestion(0);
+    console.log('Question array:' + { ...questionArray });
+    setIsLoading(false);
+  };
+
+  const newQuestion = async (num: number) => {
+    if (currentQuestionNum >= numberOfQuestions) {
+      Review();
+    } else {
+      setCurrentQuestionNum(num + 1);
+    }
+  };
+
+  const checkCorrect = (clicked: string) => {
+    if (clicked === questionArray[currentQuestionNum - 1].answerText) {
+      alert('correct');
+    } else {
+      alert('Incorrect');
+    }
+    newQuestion(currentQuestionNum);
   };
 
   useEffect(() => {
-    doQuestions();
+    loadQuestions(numberOfQuestions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const question_num = 1;
-  const num_questions = 5;
-  const header_message = question_num + ' / ' + num_questions;
+  const header_message = currentQuestionNum + ' / ' + numberOfQuestions;
 
   return (
     <>
@@ -46,24 +68,32 @@ const App = () => {
         </NavBar>
         <p></p>
         <CentredScreen>
-          {listedAnswers && (
-            <>
-              <div style={{ marginTop: '8%', marginBottom: '8%' }}>
-                <QuestionText>{question}</QuestionText>
-              </div>
-              <div>
-                {listedAnswers.map((ans, i) => (
-                  <CustomButton type="XL" onClick={() => alert(i)}>
-                    {ans}
+          {isLoading ? (
+            <QuestionText>Loading Question...</QuestionText>
+          ) : (
+            questionArray && (
+              <>
+                <div style={{ marginTop: '8%', marginBottom: '8%' }}>
+                  <QuestionText>
+                    {questionArray[currentQuestionNum - 1].questionText}
+                  </QuestionText>
+                </div>
+                <div>
+                  {questionArray[currentQuestionNum - 1].all_answers.map(
+                    (ans) => (
+                      <CustomButton type="XL" onClick={() => checkCorrect(ans)}>
+                        {ans}
+                      </CustomButton>
+                    )
+                  )}
+                </div>
+                <div style={{ marginTop: '20%' }}>
+                  <CustomButton type="large" onClick={Review}>
+                    Continue
                   </CustomButton>
-                ))}
-              </div>
-              <div style={{ marginTop: '20%' }}>
-                <CustomButton type="large" onClick={Review}>
-                  Continue
-                </CustomButton>
-              </div>
-            </>
+                </div>
+              </>
+            )
           )}
         </CentredScreen>
       </div>
