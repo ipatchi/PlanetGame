@@ -5,12 +5,15 @@ import QuestionText from '../../Components/QuestionText/QuestionText';
 import ReviewDrop from '../../Components/ReviewDrop/ReviewDrop';
 import CustomButton from '../../Components/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
+import { getReview } from './ReviewHandler';
 
 const App = () => {
   const navigate = useNavigate();
   const Home = () => {
     navigate('/');
   };
+
+  const reviewArray = getReview();
 
   return (
     <>
@@ -23,16 +26,17 @@ const App = () => {
         <CentredScreen>
           <br></br>
           <QuestionText>Review</QuestionText>
-          <ReviewDrop
-            title="Question 1"
-            question="Why is mars round?"
-            correct={true}
-          ></ReviewDrop>
-          <ReviewDrop
-            title="Question 2"
-            question="Why is saturn ringy?"
-            correct={false}
-          ></ReviewDrop>
+          <div>
+            {reviewArray.map((i, k) => (
+              <ReviewDrop
+                title={`Question ${k + 1}`}
+                question={i.questionText}
+                selected={i.selectedAnswer}
+                realAnswer={i.answerText}
+                correct={i.correct}
+              ></ReviewDrop>
+            ))}
+          </div>
         </CentredScreen>
       </div>
     </>
