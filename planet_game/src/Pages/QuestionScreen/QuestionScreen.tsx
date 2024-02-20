@@ -48,10 +48,7 @@ const App = () => {
     const QuestionElement = questionArray[currentQuestionNum - 1];
     let correct = false;
     if (clicked === QuestionElement.answerText) {
-      alert('Correct');
       correct = true;
-    } else {
-      alert('Incorrect');
     }
     addReview(
       QuestionElement.questionText,
@@ -97,11 +94,6 @@ const App = () => {
                       </CustomButton>
                     )
                   )}
-                </div>
-                <div style={{ marginTop: '20%' }}>
-                  <CustomButton type="large" onClick={Review}>
-                    Continue
-                  </CustomButton>
                 </div>
               </>
             )

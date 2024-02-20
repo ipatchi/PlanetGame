@@ -81,18 +81,20 @@ const LearnScreen = () => {
         </CentredScreen>
         <div>
           {listedDetails && listedAttributes && (
-            <p className="info">
-              <Info>
-                <CentredScreen>
-                  <h2 className="title">{listedDetails.name}</h2>
-                </CentredScreen>
-                {listedAttributes.map((entry: string) => (
-                  <p>
-                    {entry} : {listedDetails[entry]}
-                  </p>
-                ))}
-              </Info>
-            </p>
+            <div className='box'>
+              <p className="info">
+                <Info>
+                  <CentredScreen>
+                    <h2 className="title">{listedDetails.name}</h2>
+                  </CentredScreen>
+                  {listedAttributes.map((entry: string) => (
+                    <p>
+                      {entry} : {listedDetails[entry]}
+                    </p>
+                  ))}
+                </Info>
+              </p>
+          </div>
           )}
         </div>
       </div>
