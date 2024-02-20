@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { newQuestionDeck } from './QuestionGenerator';
 import Question from './QuestionType';
+import { addReview, clearReview } from '../ReviewScreen/ReviewHandler';
 
 const App = () => {
   const [questionArray, setQuestionArray] = useState<Question[]>([]);
@@ -30,6 +31,7 @@ const App = () => {
     const arr = await newQuestionDeck(numberOfQuestions);
     setQuestionArray(arr);
     newQuestion(0);
+    clearReview();
     console.log('Question array:' + { ...questionArray });
     setIsLoading(false);
   };
@@ -43,11 +45,20 @@ const App = () => {
   };
 
   const checkCorrect = (clicked: string) => {
-    if (clicked === questionArray[currentQuestionNum - 1].answerText) {
-      alert('correct');
+    const QuestionElement = questionArray[currentQuestionNum - 1];
+    let correct = false;
+    if (clicked === QuestionElement.answerText) {
+      alert('Correct');
+      correct = true;
     } else {
       alert('Incorrect');
     }
+    addReview(
+      QuestionElement.questionText,
+      QuestionElement.answerText,
+      clicked,
+      correct
+    );
     newQuestion(currentQuestionNum);
   };
 
