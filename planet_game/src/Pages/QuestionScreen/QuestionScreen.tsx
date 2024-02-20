@@ -30,6 +30,7 @@ const App = () => {
     const arr = await newQuestionDeck(numberOfQuestions);
     setQuestionArray(arr);
     newQuestion(0);
+    console.log('Question array:' + { ...questionArray });
     setIsLoading(false);
   };
 
@@ -52,11 +53,10 @@ const App = () => {
 
   useEffect(() => {
     loadQuestions(numberOfQuestions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const header_message = currentQuestionNum + ' / ' + numberOfQuestions;
-
-  console.log({ questionArray });
 
   return (
     <>
