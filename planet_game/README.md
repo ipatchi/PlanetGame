@@ -33,3 +33,4 @@ export default {
 Install:
 yarn add vite
 yarn add react-router-dom
+yarn add @testing-library/react @testing-library/jest-dom
