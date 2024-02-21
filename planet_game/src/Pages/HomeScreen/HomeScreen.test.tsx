@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react';
 import HomeScreen from './HomeScreen';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-describe('Button tests', () => {
-  test('renders the landing page', () => {
+describe('Test Homescreen', () => {
+  test('start button exists', () => {
     render(
       <BrowserRouter>
         <Routes>
@@ -14,6 +14,21 @@ describe('Button tests', () => {
     expect(
       screen.getByRole('button', {
         name: /start/i,
+      })
+    ).toHaveProperty('disabled', false);
+  });
+
+  test('learn button exists', () => {
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<HomeScreen />} />
+        </Routes>
+      </BrowserRouter>
+    );
+    expect(
+      screen.getByRole('button', {
+        name: /learn/i,
       })
     ).toHaveProperty('disabled', false);
   });
