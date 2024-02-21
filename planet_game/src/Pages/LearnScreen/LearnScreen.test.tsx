@@ -1,17 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import LearnScreen from './LearnScreen';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { vi } from 'vitest';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
 const server = setupServer(
-  rest.get("http://localhost:8080/planet", (_req, res, ctx) =>
-    res(
-      ctx.json<string[]>(
-        ["Saturn", "Earth"]
-      )
-    )
+  rest.get('http://localhost:8080/planet', (_req, res, ctx) =>
+    res(ctx.json<string[]>(['Saturn', 'Earth']))
+  ),
+  rest.get('http://localhost:8080/headers', (_req, res, ctx) =>
+    res(ctx.json<string[]>(['big', 'round']))
+  ),
+  rest.post('http://localhost:8080/planet/search', (_req, res, ctx) =>
+    res(ctx.json<string>('2'))
   )
 );
 
@@ -37,15 +38,7 @@ describe('Test LearnScreen', () => {
     ).toHaveProperty('disabled', false);
   });
 
-
-  // #################################################### //
-  //              no idea how to do this T-T              //
-  //                                                      //
-  //      This should be the same thing as the button     //
-  //        but it doesn't recognise the .getByRole       //
-  // #################################################### //
-
-  test.only('loading bar exists if not attached to API', async() => {
+  test.only('loading bar exists if not attached to API', async () => {
     render(
       <BrowserRouter>
         <Routes>
@@ -53,15 +46,13 @@ describe('Test LearnScreen', () => {
         </Routes>
       </BrowserRouter>
     );
-    expect(
-      await screen.findByText(/loading.../i)).toBeTruthy();
+    expect(await screen.findByText(/loading.../i)).toBeTruthy();
   });
 
+  // This needs the API to work
   test('searchbar exists', async () => {
     // mock an api call
-    vi.mock('../../API/getPlanetNames');
 
-    
     render(
       <BrowserRouter>
         <Routes>

@@ -17,4 +17,16 @@ describe('Test QuestionScreen', () => {
       })
     ).toHaveProperty('disabled', false);
   });
+  test('loading bar exists if not attached to API', async () => {
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<QuestionScreen />} />
+        </Routes>
+      </BrowserRouter>
+    );
+    expect(await screen.findByText(/loading.../i)).toBeTruthy();
+  });
+  // test if the buttons have the answers in them (mock another API call)
+  // test if the question can take different planet names and attributes
 });
