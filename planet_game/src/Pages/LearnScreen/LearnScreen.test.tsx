@@ -20,20 +20,23 @@ describe('Test LearnScreen', () => {
 
   // #################################################### //
   //              no idea how to do this T-T              //
+  //                                                      //
+  //      This should be the same thing as the button     //
+  //        but it doesn't recognise the .getByRole       //
   // #################################################### //
 
-  //   test('search bar exists', () => {
-  //     render(
-  //       <BrowserRouter>
-  //         <Routes>
-  //           <Route path="*" element={<LearnScreen />} />
-  //         </Routes>
-  //       </BrowserRouter>
-  //     );
-  //     expect(
-  //       screen.getByRole('Search', {
-  //         name: /search/i,
-  //       })
-  //     ).toHaveProperty('disabled', false);
-  //   });
+  // test('searchbar exists', () => {
+  //   render(
+  //     <BrowserRouter>
+  //       <Routes>
+  //         <Route path="*" element={<LearnScreen />} />
+  //       </Routes>
+  //     </BrowserRouter>
+  //   );
+  //   expect(
+  //     screen.getByRole('input', {
+  //       name: /search/i,
+  //     })
+  //   ).toHaveProperty('disabled', false);
+  // });
 });
