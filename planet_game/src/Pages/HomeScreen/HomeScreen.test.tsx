@@ -13,6 +13,7 @@ describe('Test Homescreen', () => {
     );
     expect(
       screen.getByRole('button', {
+        // checks that the text inside the button is what it says
         name: /start/i,
       })
     ).toHaveProperty('disabled', false);

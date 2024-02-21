@@ -36,7 +36,7 @@ const App = () => {
           </div>
           <div style={{ marginTop: '20%' }}>
             <CustomButton type="large" onClick={Home}>
-              Continue
+              Home
             </CustomButton>
           </div>
         </CentredScreen>
