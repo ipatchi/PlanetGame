@@ -19,11 +19,11 @@ const addReview = (
 };
 
 const getReview = () => {
-    return ReviewArray
-}
+  return ReviewArray;
+};
 
 const clearReview = () => {
-    ReviewArray.length = 0;
-}
+  ReviewArray.length = 0;
+};
 
-export {addReview, getReview, clearReview};
+export { addReview, getReview, clearReview };
