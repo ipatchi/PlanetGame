@@ -23,7 +23,7 @@ const Search = ({
     ]);
     setShowList(value.length > 0);
   };
-
+  console.log({filteredList})
   //Function to send the submitted choice back to the caller - just an alert for now
   const submitChoiceHandler = (value: string) => {
     call_on_click(value);
