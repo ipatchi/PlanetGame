@@ -14,15 +14,18 @@ const NavBar = ({
     <>
       <div className="Nav">
         <table>
-          <tr>
-            <th className="navChildren">{children}</th>
-            <th>
-              <h1>{title}</h1>
-            </th>
-            <th>
-              <p>{message}</p>
-            </th>
-          </tr>
+          <thead></thead>
+          <tbody>
+            <tr>
+              <th className="navChildren">{children}</th>
+              <th>
+                <h1>{title}</h1>
+              </th>
+              <th>
+                <p>{message}</p>
+              </th>
+            </tr>
+          </tbody>
         </table>
       </div>
     </>
