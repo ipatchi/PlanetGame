@@ -23,7 +23,7 @@ const Search = ({
     ]);
     setShowList(value.length > 0);
   };
-
+  console.log({filteredList})
   //Function to send the submitted choice back to the caller - just an alert for now
   const submitChoiceHandler = (value: string) => {
     call_on_click(value);
@@ -37,7 +37,7 @@ const Search = ({
   //Return all of the list items as h2 elements with their respective elements from the list
   const displayedList = filteredList.map((data) => {
     return (
-      <div className="result">
+      <div className="result" key={data}>
         <h2
           style={{ display: showList ? 'block' : 'none' }}
           onClick={(e) => submitChoiceHandler(e.currentTarget.innerText)}

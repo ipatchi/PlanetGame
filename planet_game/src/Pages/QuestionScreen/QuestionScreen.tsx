@@ -5,8 +5,8 @@ import QuestionText from '../../Components/QuestionText/QuestionText';
 import CustomButton from '../../Components/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { newQuestionDeck } from './QuestionGenerator';
-import Question from './QuestionType';
+import { newQuestionDeck } from '../../Components/QuestionGenerator/QuestionGenerator';
+import Question from '../../Components/QuestionGenerator/QuestionType';
 import { addReview, clearReview } from '../ReviewScreen/ReviewHandler';
 
 const App = () => {

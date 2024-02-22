@@ -43,8 +43,7 @@ const LearnScreen = () => {
 
   const showDetails = async () => {
 
-   const details = await allDetails(name);
-
+    const details = await allDetails(name);
     setListedDetails(details);
   };
 
@@ -54,10 +53,10 @@ const LearnScreen = () => {
   };
 
   useEffect(() => {
-    showDetails();
+    if (name) showDetails();
     getAllAttributes();
   }, [name]);
-
+  
   return (
     <>
       <div>
@@ -88,7 +87,7 @@ const LearnScreen = () => {
                     <h2 className="title">{listedDetails.name}</h2>
                   </CentredScreen>
                   {listedAttributes.map((entry: string) => (
-                    <p>
+                    <p key={listedDetails[entry]}>
                       {entry} : {listedDetails[entry]}
                     </p>
                   ))}
