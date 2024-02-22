@@ -43,7 +43,7 @@ const LearnScreen = () => {
 
   const showDetails = async () => {
 
-   const details = await allDetails(name);
+    const details = await allDetails(name);
     setListedDetails(details);
   };
 
@@ -53,7 +53,7 @@ const LearnScreen = () => {
   };
 
   useEffect(() => {
-    showDetails();
+    if (name) showDetails();
     getAllAttributes();
   }, [name]);
   
