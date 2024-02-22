@@ -38,7 +38,7 @@ describe('Test LearnScreen', () => {
     ).toHaveProperty('disabled', false);
   });
 
-  test.only('loading bar exists if not attached to API', async () => {
+  test('loading bar exists if not attached to API', async () => {
     render(
       <BrowserRouter>
         <Routes>
