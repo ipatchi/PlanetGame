@@ -14,7 +14,7 @@ const App = () => {
   const [currentQuestionNum, setCurrentQuestionNum] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const numberOfQuestions = 3;
+  const numberOfQuestions: number = 3;
 
   //Navigation Routing
 
@@ -28,11 +28,10 @@ const App = () => {
 
   //Get Question
   const loadQuestions = async (numberOfQuestions: number) => {
-    const arr = await newQuestionDeck(numberOfQuestions);
+    const arr: Question[] = await newQuestionDeck(numberOfQuestions);
     setQuestionArray(arr);
     newQuestion(0);
     clearReview();
-    console.log('Question array:' + { ...questionArray });
     setIsLoading(false);
   };
 
@@ -45,8 +44,8 @@ const App = () => {
   };
 
   const checkCorrect = (clicked: string) => {
-    const QuestionElement = questionArray[currentQuestionNum - 1];
-    let correct = false;
+    const QuestionElement:Question = questionArray[currentQuestionNum - 1];
+    let correct:boolean = false;
     if (clicked === QuestionElement.answerText) {
       correct = true;
     }
@@ -64,7 +63,7 @@ const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const header_message = currentQuestionNum + ' / ' + numberOfQuestions;
+  const header_message:string = currentQuestionNum + ' / ' + numberOfQuestions;
 
   return (
     <>

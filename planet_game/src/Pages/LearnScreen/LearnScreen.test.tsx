@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
-
 const server = setupServer(
   rest.get('http://localhost:8080/planet', (_req, res, ctx) =>
     res(ctx.json<string[]>(['Saturn', 'Earth']))

@@ -34,23 +34,26 @@ const newQuestionDeck = async (num_questions: number) => {
     //Repeat for the number of questions needed
     //API Calls
 
-    const num_answers = 3;
-    const planet = await getRandomPlanet();
-    const attribute = await getRandomAttribute();
-    const correctAnswer = await getAttribute(attribute, planet);
-    const wrongAnswerArray = [];
-    const denyList = [planet];
+    const num_answers: number = 3;
+    const planet: string = await getRandomPlanet();
+    const attribute: string = await getRandomAttribute();
+    const correctAnswer: string = await getAttribute(attribute, planet);
+    const wrongAnswerArray: string[] = [];
+    const denyList: string[] = [planet];
 
     for (let i = 0; i < num_answers; i++) {
-      const randomPlanet = await getRandomPlanet(denyList);
-      const wrongAnswer = await getAttribute(attribute, randomPlanet);
+      const randomPlanet: string = await getRandomPlanet(denyList);
+      const wrongAnswer: string = await getAttribute(attribute, randomPlanet);
       wrongAnswerArray.push(wrongAnswer);
       denyList.push(randomPlanet);
     }
 
-    const question = 'What is the ' + attribute + ' of ' + planet + '?'; //Question format
-    const allAnswers = [...wrongAnswerArray];
-    const correctAnswerPos = randomInRange(0, wrongAnswerArray.length - 1);
+    const question: string = 'What is the ' + attribute + ' of ' + planet + '?'; //Question format
+    const allAnswers: string[] = [...wrongAnswerArray];
+    const correctAnswerPos: number = randomInRange(
+      0,
+      wrongAnswerArray.length - 1
+    );
     allAnswers.splice(correctAnswerPos, 0, correctAnswer);
 
     const Q: Question = {

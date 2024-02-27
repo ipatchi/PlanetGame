@@ -6,12 +6,8 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const Info: React.FC<Props> = ({ children}) => {
-  return (
-    <div>
-      {children}
-    </div>
-  );
+const Info: React.FC<Props> = ({ children }) => {
+  return <div>{children}</div>;
 };
 
 export default Info;

@@ -19,10 +19,10 @@ const ReviewDrop = ({
     setShowInfo(!showInfo);
   };
 
-  const titleText = correct
+  const titleText: string = correct
     ? (title || 'Question') + ' ✓'
     : (title || 'Question') + ' ✘';
-  const outputText = correct
+  const outputText: string = correct
     ? 'Question: ' +
       (question || 'Place Holder') +
       '\n' +

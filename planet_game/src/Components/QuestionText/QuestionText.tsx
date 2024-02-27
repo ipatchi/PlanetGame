@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import "./QuestionText.css";
+import { ReactNode } from 'react';
+import './QuestionText.css';
 
 function QuestionText({ children }: { children?: ReactNode }) {
   return (

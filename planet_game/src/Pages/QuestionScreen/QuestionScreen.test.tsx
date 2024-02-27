@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import QuestionScreen from "./QuestionScreen"
+import QuestionScreen from './QuestionScreen';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 describe('Test QuestionScreen', () => {
@@ -17,6 +17,7 @@ describe('Test QuestionScreen', () => {
       })
     ).toHaveProperty('disabled', false);
   });
+
   test('loading bar exists if not attached to API', async () => {
     render(
       <BrowserRouter>

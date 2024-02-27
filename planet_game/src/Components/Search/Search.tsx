@@ -8,7 +8,7 @@ const Search = ({
 }: {
   placeholder_text?: string;
   item_list: string[];
-  call_on_click: (value:string) => void;
+  call_on_click: (value: string) => void;
 }) => {
   //List of things and usestate for the filtered list, and whether the list should be displayed or not
   const [showList, setShowList] = useState(false);
