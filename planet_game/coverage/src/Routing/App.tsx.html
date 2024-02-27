@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/API/getAllDetails.ts</title>
+    <title>Code coverage report for src/Routing/App.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/API</a> getAllDetails.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/Routing</a> App.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">46.66% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/30</span>
+                <span class='fraction'>0/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">46.66% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/30</span>
+                <span class='fraction'>0/24</span>
             </div>
         
             
@@ -87,22 +87,7 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -112,8 +97,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -121,38 +104,37 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import axios from 'axios';
-&nbsp;
-interface SearchType {
-  data: { key: string }[];
-}
-interface AllDetailsType {
-  data: { [index: string]: string };
-}
-&nbsp;
-const postDetailsRequest = <span class="fstat-no" title="function not covered" >async (planetName: string) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const req: SearchType = await axios.post(</span>
-<span class="cstat-no" title="statement not covered" >    'http://localhost:8080/planet/search',</span>
-<span class="cstat-no" title="statement not covered" >    {</span>
-<span class="cstat-no" title="statement not covered" >      name: planetName,</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import './App.css';</span></span></span>
+<span class="cstat-no" title="statement not covered" >import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >import HomeScreen from '../Pages/HomeScreen/HomeScreen';</span>
+<span class="cstat-no" title="statement not covered" >import ReviewScreen from '../Pages/ReviewScreen/ReviewScreen';</span>
+<span class="cstat-no" title="statement not covered" >import QuestionScreen from '../Pages/QuestionScreen/QuestionScreen';</span>
+<span class="cstat-no" title="statement not covered" >import LearnScreen from '../Pages/LearnScreen/LearnScreen';</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >const App = () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
+<span class="cstat-no" title="statement not covered" >    &lt;&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;Router&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;Routes&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;Route path="/" Component={HomeScreen}&gt;&lt;/Route&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;Route path="/Review" Component={ReviewScreen}&gt;&lt;/Route&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;Route path="/Question" Component={QuestionScreen}&gt;&lt;/Route&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;Route path="/Learn" Component={LearnScreen}&gt;&lt;/Route&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;/Routes&gt;</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/Router&gt;</span>
+<span class="cstat-no" title="statement not covered" >    &lt;/&gt;</span>
 <span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >  const key: string = req.data[0].key;</span>
-<span class="cstat-no" title="statement not covered" >  return key;</span>
 <span class="cstat-no" title="statement not covered" >};</span>
-&nbsp;
-const allDetails = <span class="fstat-no" title="function not covered" >async (planetName: string) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const end: string = await postDetailsRequest(planetName);</span>
-<span class="cstat-no" title="statement not covered" >  const res: AllDetailsType = await axios.get(</span>
-<span class="cstat-no" title="statement not covered" >    'http://localhost:8080/planet/' + end</span>
-<span class="cstat-no" title="statement not covered" >  );</span>
-<span class="cstat-no" title="statement not covered" >  const b: { [index: string]: string } = res.data;</span>
-<span class="cstat-no" title="statement not covered" >  return b;</span>
-<span class="cstat-no" title="statement not covered" >};</span>
-&nbsp;
-export default allDetails;
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >export default App;</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
