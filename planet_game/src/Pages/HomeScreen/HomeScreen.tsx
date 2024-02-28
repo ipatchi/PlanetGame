@@ -12,6 +12,9 @@ const QuestionScreen = () => {
   const Start = () => {
     navigate('/Question');
   };
+  const QuestionSelection = () => {
+    navigate('/QuestionSelection')
+  }
   return (
     <>
       <div>
@@ -21,6 +24,10 @@ const QuestionScreen = () => {
           <div className="gap"></div>
           <CustomButton type="XL" onClick={Start}>
             Start
+          </CustomButton>
+          <div></div>
+          <CustomButton type="XL" onClick={QuestionSelection}>
+            Question selection
           </CustomButton>
           <div></div>
           <CustomButton type="XL" onClick={Learn}>
