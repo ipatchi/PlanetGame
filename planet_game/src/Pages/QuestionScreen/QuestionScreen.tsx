@@ -15,7 +15,7 @@ const App = () => {
   const [currentQuestionNum, setCurrentQuestionNum] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const numberOfQuestions = 3;
+  const numberOfQuestions = 5;
 
   //Navigation Routing
 

@@ -6,6 +6,7 @@ import './LearnScreen.css';
 import getPlanetNames from '@api/getPlanetNames';
 import allDetails from '@api/getAllDetails';
 import getAttributes from '@api/Attributes';
+
 import CentredScreen from '@components/Centre/CentredScreen';
 import NavBar from '@components/NavBar/NavBar';
 import CustomButton from '@components/CustomButton/CustomButton';
