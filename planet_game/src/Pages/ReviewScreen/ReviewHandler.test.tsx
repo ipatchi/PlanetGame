@@ -2,14 +2,14 @@ import { addReview, getReview, clearReview } from './ReviewHandler';
 import { describe, expect, test } from 'vitest';
 
 describe('Review Handler Functionality', () => {
+  const rev = {
+    questionText: 'question',
+    answerText: 'answer',
+    selectedAnswer: 'selected',
+    correct: true,
+  };
+  const arr = [rev];
   test('Get review returns the array', () => {
-    const rev = {
-      questionText: 'question',
-      answerText: 'answer',
-      selectedAnswer: 'selected',
-      correct: true,
-    };
-    const arr = [rev];
     clearReview();
     addReview(
       rev.questionText,
@@ -21,7 +21,12 @@ describe('Review Handler Functionality', () => {
   });
 
   test('Clear review empties the array', () => {
-    addReview('q', 'a', 's', true);
+    addReview(
+      rev.questionText,
+      rev.answerText,
+      rev.selectedAnswer,
+      rev.correct
+    );
     const initial = getReview().length;
     clearReview();
     const final = getReview().length;
@@ -31,13 +36,6 @@ describe('Review Handler Functionality', () => {
   test('Add review adds to array', () => {
     clearReview();
     addReview('question', 'answer', 'selected', true);
-    expect(getReview()).toStrictEqual([
-      {
-        questionText: 'question',
-        answerText: 'answer',
-        selectedAnswer: 'selected',
-        correct: true,
-      },
-    ]);
+    expect(getReview()).toStrictEqual(arr);
   });
 });

@@ -13,7 +13,7 @@ const dict: Record<string, string> = {
 
 const fromDictionary = (value: string) => {
   if (Object.keys(dict).includes(value)) {
-    value = dict[value];
+    return dict[value];
   }
   return value;
 };

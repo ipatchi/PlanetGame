@@ -55,6 +55,7 @@ const LearnScreen = () => {
   useEffect(() => {
     if (name) showDetails();
     getAllAttributes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name]);
 
   return (
