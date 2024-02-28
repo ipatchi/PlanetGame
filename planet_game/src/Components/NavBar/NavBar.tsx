@@ -1,4 +1,6 @@
 import { ReactNode } from 'react';
+
+// styling
 import './NavBar.css';
 
 const NavBar = ({

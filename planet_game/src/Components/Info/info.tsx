@@ -1,3 +1,5 @@
+//get rid of this and replace as div in learnscreen or add styling here
+
 import React from 'react';
 
 import './info.css';

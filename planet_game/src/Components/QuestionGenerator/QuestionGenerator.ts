@@ -1,9 +1,10 @@
-import getAttributes from '../../API/Attributes';
-import allDetails from '../../API/getAllDetails';
-import getPlanetNames from '../../API/getPlanetNames';
-import randomInRange from '../../Scripts/rng';
+import getAttributes from '@api/Attributes';
+import allDetails from '@api/getAllDetails';
+import getPlanetNames from '@api/getPlanetNames';
+
+import randomInRange from '@scripts/rng';
 import Question from './QuestionType';
-import { fromDictionary } from '../../Scripts/scientificTranslator';
+import { fromDictionary } from '@scripts/scientificTranslator';
 
 const getRandomPlanet = async (denyList?: string[]) => {
   //API Call for all planets, then randomise

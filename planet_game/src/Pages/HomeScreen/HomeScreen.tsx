@@ -1,8 +1,10 @@
-import '../../Routing/App.css';
-import CentredScreen from '../../Components/Centre/CentredScreen';
-import NavBar from '../../Components/NavBar/NavBar';
-import CustomButton from '../../Components/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
+
+import '@routing/App.css';
+
+import CentredScreen from '@components/Centre/CentredScreen';
+import NavBar from '@components/NavBar/NavBar';
+import CustomButton from '@components/CustomButton/CustomButton';
 
 const QuestionScreen = () => {
   const navigate = useNavigate();

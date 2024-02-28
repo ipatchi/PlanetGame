@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { ResponseTypes } from './ResponseType';
 
 const getNames = async () => {

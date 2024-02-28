@@ -1,16 +1,18 @@
-import '../../Routing/App.css';
-import CentredScreen from '../../Components/Centre/CentredScreen';
-import NavBar from '../../Components/NavBar/NavBar';
-import CustomButton from '../../Components/CustomButton/CustomButton';
-import { useNavigate } from 'react-router-dom';
-import Search from '../../Components/Search/Search';
-import Info from '../../Components/Info/info';
-import getPlanetNames from '../../API/getPlanetNames';
 import { useEffect, useState } from 'react';
-import allDetails from '../../API/getAllDetails';
-import getAttributes from '../../API/Attributes';
+import { useNavigate } from 'react-router-dom';
+
+import '@routing/App.css';
 import './LearnScreen.css';
-import { fromDictionary } from '../../Scripts/scientificTranslator';
+
+import getPlanetNames from '@api/getPlanetNames';
+import allDetails from '@api/getAllDetails';
+import getAttributes from '@api/Attributes';
+import CentredScreen from '@components/Centre/CentredScreen';
+import NavBar from '@components/NavBar/NavBar';
+import CustomButton from '@components/CustomButton/CustomButton';
+import Search from '@components/Search/Search';
+import Info from '@components/Info/info';
+import { fromDictionary } from '@scripts/scientificTranslator';
 
 const LearnScreen = () => {
   const [listedDetails, setListedDetails] = useState<{
