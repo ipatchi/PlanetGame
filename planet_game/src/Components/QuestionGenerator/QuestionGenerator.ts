@@ -1,8 +1,9 @@
 import getAttributes from '../../API/Attributes';
 import allDetails from '../../API/getAllDetails';
 import getPlanetNames from '../../API/getPlanetNames';
-import randomInRange from '../../rng';
+import randomInRange from '../../Scripts/rng';
 import Question from './QuestionType';
+import { fromDictionary } from '../../Scripts/scientificTranslator';
 
 const getRandomPlanet = async (denyList?: string[]) => {
   //API Call for all planets, then randomise
@@ -48,7 +49,8 @@ const newQuestionDeck = async (num_questions: number) => {
       denyList.push(randomPlanet);
     }
 
-    const question = 'What is the ' + attribute + ' of ' + planet + '?'; //Question format
+    const question =
+      'What is the ' + fromDictionary(attribute) + ' of ' + planet + '?'; //Question format
     const allAnswers = [...wrongAnswerArray];
     const correctAnswerPos = randomInRange(0, wrongAnswerArray.length - 1);
     allAnswers.splice(correctAnswerPos, 0, correctAnswer);
