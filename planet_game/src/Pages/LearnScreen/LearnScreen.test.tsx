@@ -1,9 +1,9 @@
-import { render, screen } from '@testing-library/react';
-import LearnScreen from './LearnScreen';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { render, screen } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
+import LearnScreen from './LearnScreen';
 
 const server = setupServer(
   rest.get('http://localhost:8080/planet', (_req, res, ctx) =>
@@ -13,7 +13,7 @@ const server = setupServer(
     res(ctx.json<string[]>(['type', 'mass']))
   ),
   rest.post('http://localhost:8080/planet/search', (_req, res, ctx) =>
-    res(ctx.json<string>('saturn'))
+    res(ctx.json<string>('Saturn'))
   )
 );
 

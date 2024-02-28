@@ -18,7 +18,19 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Paths */
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["src/*"],
+      "@api/*": ["src/API/*"],
+      "@components/*": ["src/Components/*"],
+      "@pages/*": ["./src/Pages/*"],
+      "@reviewScreen/*": ["src/Pages/ReviewScreen/*"],
+      "@routing/*": ["src/Routing/*"],
+      "@scripts/*": ["src/Scripts/*"]
+    }
   },
   "include": ["src", "babel.config.js"],
   "references": [{ "path": "./tsconfig.node.json" }]

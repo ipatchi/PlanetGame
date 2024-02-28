@@ -1,13 +1,14 @@
-import '../../Routing/App.css';
-import CentredScreen from '../../Components/Centre/CentredScreen';
-import NavBar from '../../Components/NavBar/NavBar';
-import QuestionText from '../../Components/QuestionText/QuestionText';
-import CustomButton from '../../Components/CustomButton/CustomButton';
-import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { newQuestionDeck } from '../../Components/QuestionGenerator/QuestionGenerator';
-import Question from '../../Components/QuestionGenerator/QuestionType';
-import { addReview, clearReview } from '../ReviewScreen/ReviewHandler';
+import { useNavigate } from 'react-router-dom';
+
+import CentredScreen from '@components/Centre/CentredScreen';
+import NavBar from '@components/NavBar/NavBar';
+import QuestionText from '@components/QuestionText/QuestionText';
+import CustomButton from '@components/CustomButton/CustomButton';
+import { newQuestionDeck } from '@components/QuestionGenerator/QuestionGenerator';
+import Question from '@components/QuestionGenerator/QuestionType';
+
+import { addReview, clearReview } from '@reviewScreen/ReviewHandler';
 
 const App = () => {
   const [questionArray, setQuestionArray] = useState<Question[]>([]);

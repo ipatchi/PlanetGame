@@ -1,6 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import HomeScreen from './HomeScreen';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { render, screen } from '@testing-library/react';
+
+import HomeScreen from './HomeScreen';
 
 describe('Test Homescreen', () => {
   test('start button exists', () => {

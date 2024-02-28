@@ -1,6 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import ReviewScreen from './ReviewScreen';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { render, screen } from '@testing-library/react';
+
+import ReviewScreen from './ReviewScreen';
 
 describe('Test QuestionScreen', () => {
   test('home button exists', () => {

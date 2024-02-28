@@ -1,10 +1,10 @@
-import '../../Routing/App.css';
-import CentredScreen from '../../Components/Centre/CentredScreen';
-import NavBar from '../../Components/NavBar/NavBar';
-import QuestionText from '../../Components/QuestionText/QuestionText';
-import ReviewDrop from '../../Components/ReviewDrop/ReviewDrop';
-import CustomButton from '../../Components/CustomButton/CustomButton';
 import { useNavigate } from 'react-router-dom';
+
+import CentredScreen from '@components/Centre/CentredScreen';
+import NavBar from '@components/NavBar/NavBar';
+import QuestionText from '@components/QuestionText/QuestionText';
+import ReviewDrop from '@components/ReviewDrop/ReviewDrop';
+import CustomButton from '@components/CustomButton/CustomButton';
 import { getReview } from './ReviewHandler';
 
 const App = () => {
@@ -18,8 +18,7 @@ const App = () => {
   return (
     <>
       <div>
-        <NavBar title="Planet Game">
-        </NavBar>
+        <NavBar title="Planet Game"></NavBar>
         <CentredScreen>
           <br></br>
           <QuestionText>Review</QuestionText>

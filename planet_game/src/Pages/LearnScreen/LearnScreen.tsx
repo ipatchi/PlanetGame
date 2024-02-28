@@ -1,16 +1,17 @@
-import '../../Routing/App.css';
-import CentredScreen from '../../Components/Centre/CentredScreen';
-import NavBar from '../../Components/NavBar/NavBar';
-import CustomButton from '../../Components/CustomButton/CustomButton';
-import { useNavigate } from 'react-router-dom';
-import Search from '../../Components/Search/Search';
-import Info from '../../Components/Info/info';
-import getPlanetNames from '../../API/getPlanetNames';
 import { useEffect, useState } from 'react';
-import allDetails from '../../API/getAllDetails';
-import getAttributes from '../../API/Attributes';
+import { useNavigate } from 'react-router-dom';
+
 import './LearnScreen.css';
-import { fromDictionary } from '../../Scripts/scientificTranslator';
+
+import getPlanetNames from '@api/getPlanetNames';
+import allDetails from '@api/getAllDetails';
+import getAttributes from '@api/Attributes';
+import CentredScreen from '@components/Centre/CentredScreen';
+import NavBar from '@components/NavBar/NavBar';
+import CustomButton from '@components/CustomButton/CustomButton';
+import Search from '@components/Search/Search';
+import Info from '@components/Info/info';
+import { fromDictionary } from '@scripts/scientificTranslator';
 
 const LearnScreen = () => {
   const [listedDetails, setListedDetails] = useState<{
@@ -81,20 +82,16 @@ const LearnScreen = () => {
         </CentredScreen>
         <div>
           {listedDetails && listedAttributes && (
-            <div className="box">
-              <p className="info">
-                <Info>
-                  <CentredScreen>
-                    <h2 className="title">{listedDetails.name}</h2>
-                  </CentredScreen>
-                  {listedAttributes.map((entry: string) => (
-                    <p key={listedDetails[entry]}>
-                      {fromDictionary(entry)} : {listedDetails[entry]}
-                    </p>
-                  ))}
-                </Info>
-              </p>
-            </div>
+            <Info>
+              <CentredScreen>
+                <h2 className="title">{listedDetails.name}</h2>
+              </CentredScreen>
+              {listedAttributes.map((entry: string) => (
+                <p key={listedDetails[entry]}>
+                  {fromDictionary(entry)} : {listedDetails[entry]}
+                </p>
+              ))}
+            </Info>
           )}
         </div>
       </div>

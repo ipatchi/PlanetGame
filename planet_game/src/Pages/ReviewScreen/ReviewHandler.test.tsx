@@ -1,5 +1,6 @@
-import { addReview, getReview, clearReview } from './ReviewHandler';
 import { describe, expect, test } from 'vitest';
+
+import { addReview, getReview, clearReview } from './ReviewHandler';
 
 describe('Review Handler Functionality', () => {
   const rev = {

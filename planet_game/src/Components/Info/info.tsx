@@ -1,3 +1,5 @@
+//get rid of this and replace as div in learnscreen or add styling here
+
 import React from 'react';
 
 import './info.css';
@@ -8,7 +10,7 @@ interface Props {
 
 const Info: React.FC<Props> = ({ children}) => {
   return (
-    <div>
+    <div className='info'>
       {children}
     </div>
   );
