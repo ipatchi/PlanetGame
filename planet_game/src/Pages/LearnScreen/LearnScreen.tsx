@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import '@routing/App.css';
 import './LearnScreen.css';
 
 import getPlanetNames from '@api/getPlanetNames';
@@ -82,20 +81,16 @@ const LearnScreen = () => {
         </CentredScreen>
         <div>
           {listedDetails && listedAttributes && (
-            <div className="box">
-              <p className="info">
-                <Info>
-                  <CentredScreen>
-                    <h2 className="title">{listedDetails.name}</h2>
-                  </CentredScreen>
-                  {listedAttributes.map((entry: string) => (
-                    <p key={listedDetails[entry]}>
-                      {fromDictionary(entry)} : {listedDetails[entry]}
-                    </p>
-                  ))}
-                </Info>
-              </p>
-            </div>
+            <Info>
+              <CentredScreen>
+                <h2 className="title">{listedDetails.name}</h2>
+              </CentredScreen>
+              {listedAttributes.map((entry: string) => (
+                <p key={listedDetails[entry]}>
+                  {fromDictionary(entry)} : {listedDetails[entry]}
+                </p>
+              ))}
+            </Info>
           )}
         </div>
       </div>
