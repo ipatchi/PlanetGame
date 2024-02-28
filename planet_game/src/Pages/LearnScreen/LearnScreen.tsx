@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import allDetails from '../../API/getAllDetails';
 import getAttributes from '../../API/Attributes';
 import './LearnScreen.css';
+import { fromDictionary } from '../../Scripts/scientificTranslator';
 
 const LearnScreen = () => {
   const [listedDetails, setListedDetails] = useState<{
@@ -42,7 +43,6 @@ const LearnScreen = () => {
   };
 
   const showDetails = async () => {
-
     const details = await allDetails(name);
     setListedDetails(details);
   };
@@ -56,7 +56,7 @@ const LearnScreen = () => {
     if (name) showDetails();
     getAllAttributes();
   }, [name]);
-  
+
   return (
     <>
       <div>
@@ -80,7 +80,7 @@ const LearnScreen = () => {
         </CentredScreen>
         <div>
           {listedDetails && listedAttributes && (
-            <div className='box'>
+            <div className="box">
               <p className="info">
                 <Info>
                   <CentredScreen>
@@ -88,12 +88,12 @@ const LearnScreen = () => {
                   </CentredScreen>
                   {listedAttributes.map((entry: string) => (
                     <p key={listedDetails[entry]}>
-                      {entry} : {listedDetails[entry]}
+                      {fromDictionary(entry)} : {listedDetails[entry]}
                     </p>
                   ))}
                 </Info>
               </p>
-          </div>
+            </div>
           )}
         </div>
       </div>
