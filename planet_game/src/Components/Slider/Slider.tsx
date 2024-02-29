@@ -1,12 +1,10 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import './Slider.css';
 
 const Slider = ({
-  children,
   callOnChange,
 }: {
-  children?: ReactNode;
   callOnChange: (returnVal: number) => void;
 }) => {
   const [value, setValue] = useState(1);
@@ -20,7 +18,6 @@ const Slider = ({
   });
   return (
     <>
-      <div className='numberText'>{children}</div>
       <input
         className="slider"
         type="range"
@@ -32,7 +29,6 @@ const Slider = ({
           callOnChange(parseInt(radius));
         }}
       />
-      <div className='numberText'>{value}</div>
     </>
   );
 };
