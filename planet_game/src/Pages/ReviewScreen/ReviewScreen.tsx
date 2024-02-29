@@ -7,7 +7,7 @@ import ReviewDrop from '@components/ReviewDrop/ReviewDrop';
 import CustomButton from '@components/CustomButton/CustomButton';
 import { getReview } from './ReviewHandler';
 
-const App = () => {
+const ReviewScreen = () => {
   const navigate = useNavigate();
   const Home = () => {
     navigate('/');
@@ -44,4 +44,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default ReviewScreen;
