@@ -6,6 +6,8 @@ import randomInRange from '@scripts/rng';
 import Question from './QuestionType';
 import { fromDictionary } from '@scripts/scientificTranslator';
 
+const answerAttributeDenyList = ['name', 'description'];
+
 const getRandomPlanet = async (denyList?: string[]) => {
   //API Call for all planets, then randomise
   let planetList = await getPlanetNames();
@@ -18,7 +20,8 @@ const getRandomPlanet = async (denyList?: string[]) => {
 
 const getRandomAttribute = async () => {
   //API call for all attributes, then randomise
-  const attributes: string[] = await getAttributes();
+  let attributes: string[] = await getAttributes();
+  attributes = attributes.filter((at) => !answerAttributeDenyList.includes(at));
   const attribute: string = attributes[randomInRange(0, attributes.length - 1)];
   return attribute;
 };
