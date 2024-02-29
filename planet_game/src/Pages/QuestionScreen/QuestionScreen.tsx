@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import CentredScreen from '@components/Centre/CentredScreen';
 import NavBar from '@components/NavBar/NavBar';
@@ -10,12 +10,14 @@ import Question from '@components/QuestionGenerator/QuestionType';
 
 import { addReview, clearReview } from '@reviewScreen/ReviewHandler';
 
-const App = () => {
+const QuestionScreen = () => {
   const [questionArray, setQuestionArray] = useState<Question[]>([]);
   const [currentQuestionNum, setCurrentQuestionNum] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const numberOfQuestions = 3;
+  const {state}=useLocation();
+  const {num} = state;
+  const numberOfQuestions = num;
 
   //Navigation Routing
 
@@ -105,4 +107,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default QuestionScreen;

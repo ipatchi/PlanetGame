@@ -9,9 +9,9 @@ const QuestionScreen = () => {
   const Learn = () => {
     navigate('/Learn');
   };
-  const Start = () => {
-    navigate('/Question');
-  };
+   const Start = () => {
+     navigate('/Question', { state: { num:5 } });
+   };
   const QuestionSelection = () => {
     navigate('/QuestionSelection')
   }
