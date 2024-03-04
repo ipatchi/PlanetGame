@@ -8,22 +8,25 @@ import CustomButton from '@components/CustomButton/CustomButton';
 import { newQuestionDeck } from '@components/QuestionGenerator/QuestionGenerator';
 import Question from '@components/QuestionGenerator/QuestionType';
 
-import { addReview, clearReview } from '@reviewScreen/ReviewHandler';
+import ReviewText from '../ReviewScreen/ReviewType';
 
 const QuestionScreen = () => {
   const [questionArray, setQuestionArray] = useState<Question[]>([]);
   const [currentQuestionNum, setCurrentQuestionNum] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const {state}=useLocation();
-  const {num} = state;
+  const { state } = useLocation();
+  const { num } = state;
   const numberOfQuestions = num;
+
+  //const reviewArr: ReviewText[] [];
+  const [reviewArr, setReviewArr] = useState<ReviewText[]>([]);
 
   //Navigation Routing
 
   const navigate = useNavigate();
-  const Review = () => {
-    navigate('/Review');
+  const Review = (reviewState: ReviewText[]) => {
+    navigate('/Review', { state: { reviewState } });
   };
   const Home = () => {
     navigate('/');
@@ -33,33 +36,30 @@ const QuestionScreen = () => {
   const loadQuestions = async (numberOfQuestions: number) => {
     const arr = await newQuestionDeck(numberOfQuestions);
     setQuestionArray(arr);
-    newQuestion(0);
-    clearReview();
-    console.log('Question array:' + { ...questionArray });
+    setCurrentQuestionNum(1);
+    setReviewArr([]);
     setIsLoading(false);
   };
 
-  const newQuestion = async (num: number) => {
-    if (currentQuestionNum >= numberOfQuestions) {
-      Review();
-    } else {
-      setCurrentQuestionNum(num + 1);
-    }
-  };
-
   const checkCorrect = (clicked: string) => {
-    const QuestionElement = questionArray[currentQuestionNum - 1];
-    let correct = false;
-    if (clicked === QuestionElement.answerText) {
-      correct = true;
+    const questionElement = questionArray[currentQuestionNum - 1];
+
+    const updatedReviewArr = [
+      ...reviewArr,
+      {
+        questionText: questionElement.questionText,
+        answerText: questionElement.answerText,
+        correct: clicked === questionElement.answerText,
+        selectedAnswer: clicked,
+      },
+    ];
+    setReviewArr(updatedReviewArr);
+
+    if (currentQuestionNum >= numberOfQuestions) {
+      Review(updatedReviewArr);
+    } else {
+      setCurrentQuestionNum(currentQuestionNum + 1);
     }
-    addReview(
-      QuestionElement.questionText,
-      QuestionElement.answerText,
-      clicked,
-      correct
-    );
-    newQuestion(currentQuestionNum);
   };
 
   useEffect(() => {

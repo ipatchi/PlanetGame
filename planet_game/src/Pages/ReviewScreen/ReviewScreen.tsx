@@ -1,11 +1,11 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import CentredScreen from '@components/Centre/CentredScreen';
 import NavBar from '@components/NavBar/NavBar';
 import QuestionText from '@components/QuestionText/QuestionText';
 import ReviewDrop from '@components/ReviewDrop/ReviewDrop';
 import CustomButton from '@components/CustomButton/CustomButton';
-import { getReview } from './ReviewHandler';
+import ReviewText from './ReviewType';
 
 const ReviewScreen = () => {
   const navigate = useNavigate();
@@ -13,7 +13,12 @@ const ReviewScreen = () => {
     navigate('/');
   };
 
-  const reviewArray = getReview();
+  //const reviewArray = getReview();
+
+  const { state } = useLocation();
+  const { reviewState } = state;
+  const reviewArray: ReviewText[] = reviewState;
+  console.log('Recieved' + reviewArray);
 
   return (
     <>
