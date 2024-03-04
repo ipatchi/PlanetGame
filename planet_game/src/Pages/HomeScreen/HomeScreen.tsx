@@ -23,7 +23,7 @@ const QuestionScreen = () => {
           {/* use padding for breaks*/}
           <div style={{ marginTop: '8%', marginBottom: '8%' }}>
             <CustomButton type="XL" onClick={Start}>
-              Planet Quiz
+              Start Quiz
             </CustomButton>
             <div></div>
             <CustomButton type="XL" onClick={QuestionSelection}>
@@ -31,7 +31,7 @@ const QuestionScreen = () => {
             </CustomButton>
             <div></div>
             <CustomButton type="XL" onClick={Learn}>
-              Planet Learn
+              Astro Learn
             </CustomButton>
           </div>
         </CentredScreen>

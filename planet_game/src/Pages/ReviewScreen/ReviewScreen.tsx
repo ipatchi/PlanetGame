@@ -38,7 +38,7 @@ const ReviewScreen = () => {
               ></ReviewDrop>
             ))}
           </div>
-          <div style={{ marginTop: '20%' }}>
+          <div style={{ marginTop: '5%' }}>
             <CustomButton type="large" onClick={Home}>
               Home
             </CustomButton>

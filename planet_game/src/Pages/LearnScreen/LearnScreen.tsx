@@ -11,7 +11,6 @@ import CentredScreen from '@components/Centre/CentredScreen';
 import NavBar from '@components/NavBar/NavBar';
 import CustomButton from '@components/CustomButton/CustomButton';
 import Search from '@components/Search/Search';
-import Info from '@components/Info/info';
 import { fromDictionary } from '@scripts/scientificTranslator';
 
 const LearnScreen = () => {
@@ -34,12 +33,14 @@ const LearnScreen = () => {
   //Planet API Call
   useEffect(() => {
     getPlanetCall();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getPlanetCall = async () => {
     const names = await getPlanetNames();
 
-    setPlanetNames(names);
+    setPlanetNames(names.sort());
+    console.log(planetNames);
 
     setIsLoading(false);
   };
@@ -47,11 +48,13 @@ const LearnScreen = () => {
   const showDetails = async () => {
     const details = await allDetails(name);
     setListedDetails(details);
+    console.log(details);
   };
 
   const getAllAttributes = async () => {
     const attributes: string[] = await getAttributes();
     setListedAttributes(attributes);
+    console.log(attributes);
   };
 
   useEffect(() => {
@@ -83,16 +86,16 @@ const LearnScreen = () => {
         </CentredScreen>
         <div>
           {listedDetails && listedAttributes && (
-            <Info>
-              <CentredScreen>
-                <h2 className="title">{listedDetails.name}</h2>
-              </CentredScreen>
-              {listedAttributes.map((entry: string) => (
-                <p key={listedDetails[entry]}>
-                  {fromDictionary(entry)} : {listedDetails[entry]}
-                </p>
-              ))}
-            </Info>
+            <div className="infoBox">
+              <h2 className="title">{listedDetails.name}</h2>
+              <div className="infoText">
+                {listedAttributes.map((attribute: string, i) => (
+                  <p key={listedDetails[i]}>
+                    {fromDictionary(attribute)} : {listedDetails[attribute]}
+                  </p>
+                ))}
+              </div>
+            </div>
           )}
         </div>
       </div>
