@@ -40,6 +40,7 @@ const LearnScreen = () => {
     const names = await getPlanetNames();
 
     setPlanetNames(names);
+    console.log(planetNames);
 
     setIsLoading(false);
   };
@@ -47,11 +48,13 @@ const LearnScreen = () => {
   const showDetails = async () => {
     const details = await allDetails(name);
     setListedDetails(details);
+    console.log(details);
   };
 
   const getAllAttributes = async () => {
     const attributes: string[] = await getAttributes();
     setListedAttributes(attributes);
+    console.log(attributes);
   };
 
   useEffect(() => {
@@ -87,9 +90,9 @@ const LearnScreen = () => {
               <CentredScreen>
                 <h2 className="title">{listedDetails.name}</h2>
               </CentredScreen>
-              {listedAttributes.map((entry: string) => (
+              {listedAttributes.map((entry: string, i) => (
                 <p key={listedDetails[entry]}>
-                  {fromDictionary(entry)} : {listedDetails[entry]}
+                  {i + 1} - {fromDictionary(entry)} : {listedDetails[entry]}
                 </p>
               ))}
             </Info>
