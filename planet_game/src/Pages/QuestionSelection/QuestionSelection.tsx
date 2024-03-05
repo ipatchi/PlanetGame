@@ -6,6 +6,7 @@ import NavBar from '@components/NavBar/NavBar';
 import CentredScreen from '@components/Centre/CentredScreen';
 import Slider from '@components/Slider/Slider';
 import QuestionText from '@components/QuestionText/QuestionText';
+import CheckList from '@components/Checklist/CheckList';
 
 const QuestionSelection = () => {
   const [numberOfQuestions, setNumberOfQuestions] = useState(1);
@@ -28,13 +29,21 @@ const QuestionSelection = () => {
         </NavBar>
         <>
           <CentredScreen>
-            <QuestionText>
-              Number of Questions: &nbsp; {numberOfQuestions}
-            </QuestionText>
-            <Slider callOnChange={(e) => setNumberOfQuestions(e)}></Slider>
-            <CustomButton type="XL" onClick={Question}>
-              Start
-            </CustomButton>
+            <div>
+              <QuestionText>
+                Number of Questions: &nbsp; {numberOfQuestions}
+              </QuestionText>
+              <Slider callOnChange={(e) => setNumberOfQuestions(e)}></Slider>
+            </div>
+            <div>
+              <QuestionText>Choose Attributes:</QuestionText>
+              <CheckList arr={['hi', 'bob', 'howdy']}></CheckList>
+            </div>
+            <div>
+              <CustomButton type="XL" onClick={Question}>
+                Start
+              </CustomButton>
+            </div>
           </CentredScreen>
         </>
       </div>

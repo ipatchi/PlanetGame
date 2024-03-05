@@ -1,0 +1,13 @@
+.checkBox {
+  width: 100px;
+  font-size: x-large;
+  cursor: hover;
+  user-select: none;
+}
+
+.checkBox checkbox {
+  cursor: pointer;
+}
+.checkBox :hover {
+  background-color: green;
+}
