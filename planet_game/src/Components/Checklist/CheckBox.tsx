@@ -11,9 +11,11 @@ interface Props {
 const CheckBox: React.FC<Props> = ({ text, checked, getChecked }) => {
   const [isChecked, setIsChecked] = useState(checked);
   const handleCheck = () => {
-    setIsChecked(!isChecked);
-    getChecked(isChecked);
+    const updatedCheck = !isChecked;
+    setIsChecked(updatedCheck);
+    getChecked(updatedCheck);
   };
+  // console.log({text}, {isChecked})
   return (
     <>
       <div className="checkBox" onClick={handleCheck}>
