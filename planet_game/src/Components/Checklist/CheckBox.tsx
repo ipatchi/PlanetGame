@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './checkBox.css';
 
 interface Props {
-  text: string;
+  text: React.ReactNode;
   checked: boolean;
   getChecked: (value: boolean) => void;
 }
