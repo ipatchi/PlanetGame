@@ -1,5 +1,3 @@
-import React, { HtmlHTMLAttributes, useState } from 'react';
-
 import './CheckList.css';
 import CheckBox from './CheckBox';
 
@@ -8,16 +6,8 @@ interface Props {
 }
 
 const CheckList: React.FC<Props> = ({ arr }) => {
-  const [checkedArr, setCheckedArr] = useState([]);
-  const doCheck = (value, i) => {
-    setCheckedArr(value)
-    console.log({ value });
-    console.log({checkedArr})
-    console.log({...arr})
-  }
-  
-
-  console.log({ checkedArr });
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const doCheck = (_a: string, _b: number) => null;
   return (
     <>
       <div className="checkList">
@@ -25,7 +15,7 @@ const CheckList: React.FC<Props> = ({ arr }) => {
           <div key={i}>
             <CheckBox
               text={itemText}
-              checked={false}
+              checked={true}
               getChecked={() => doCheck(itemText, i)}
             ></CheckBox>
           </div>
