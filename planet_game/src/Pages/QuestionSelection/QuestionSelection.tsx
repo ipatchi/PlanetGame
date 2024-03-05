@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import CustomButton from '@components/CustomButton/CustomButton';
@@ -7,9 +7,12 @@ import CentredScreen from '@components/Centre/CentredScreen';
 import Slider from '@components/Slider/Slider';
 import QuestionText from '@components/QuestionText/QuestionText';
 import CheckList from '@components/Checklist/CheckList';
+import getAttributes from '@api/Attributes';
+//import { fromDictionary } from '@scripts/scientificTranslator';
 
 const QuestionSelection = () => {
   const [numberOfQuestions, setNumberOfQuestions] = useState(1);
+  const [listedAttributes, setListedAttributes] = useState<string[]>([]);
   //Navigation Routing
   const navigate = useNavigate();
   const Question = () => {
@@ -18,6 +21,14 @@ const QuestionSelection = () => {
   const Home = () => {
     navigate('/');
   };
+
+  const getAllAttributes = async () => {
+    const attributes: string[] = await getAttributes();
+    setListedAttributes(attributes);
+  };
+  useEffect(() => {
+    getAllAttributes();
+  }, []);
 
   return (
     <>
@@ -37,7 +48,24 @@ const QuestionSelection = () => {
             </div>
             <div>
               <QuestionText>Choose Attributes:</QuestionText>
-              <CheckList arr={['hi', 'bob', 'howdy']}></CheckList>
+              <CheckList
+                arr={[...listedAttributes]}
+                defaultValue={true}
+              ></CheckList>
+            </div>
+            <div>
+              <CustomButton type="XL" onClick={Question}>
+                Start
+              </CustomButton>
+            </div>
+            <br></br>
+            <div>
+              <QuestionText>Choose People:</QuestionText>
+
+              <CheckList
+                arr={['BOB', 'STEVE', 'STEW', 'BART', 'DISCOTRON', 'hi']}
+                defaultValue={true}
+              ></CheckList>
             </div>
             <div>
               <CustomButton type="XL" onClick={Question}>

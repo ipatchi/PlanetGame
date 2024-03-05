@@ -5,35 +5,36 @@ import CheckBox from './CheckBox';
 
 interface Props {
   arr: string[];
+  defaultValue: boolean;
 }
 
 const CheckList: React.FC<Props> = ({ arr }) => {
-  const [uncheckedArr, setUncheckedArray] = useState([...arr]);
+  const [isCheckedArr, setIsCheckedArr] = useState<boolean[]>([
+    ...arr.map(() => {
+      return false;
+    }),
+  ]);
+  //console.log('Array given:', ...isCheckedArr);
+
+  const getFalseItems = () => {
+    const output: string[] = [];
+    isCheckedArr.forEach((value, index) => {
+      if (value === false) {
+        output.push(arr[index]);
+      }
+    });
+    return output;
+  };
 
   const doCheck = (text: string, value: boolean) => {
-    let updatedArray: string[] = [...uncheckedArr];
-
-    console.log('Updated array: ', ...updatedArray);
-
-    if (value === true) {
-      const index = updatedArray.indexOf(text);
-      console.log({ index }, { text });
-      if (index > -1) {
-        updatedArray = [...updatedArray].splice(index, 0);
-        console.log('removed here', text);
-        console.log('ahhhhh', ...updatedArray);
-      } else {
-        console.log("shouldn't be here...")
-      }
-    } else {
-      updatedArray = [...uncheckedArr, text];
-      console.log('added here', text);
-    }
-
-    setUncheckedArray(updatedArray);
-
-    console.log('The array: ', ...updatedArray);
-    console.log({ value });
+    console.log('Item: ' + text + '  Value: ' + value);
+    const index = arr.indexOf(text);
+    console.log('Index:', index);
+    const updatedArray = [...isCheckedArr];
+    console.log('At index', updatedArray[index]);
+    updatedArray[index] = !updatedArray[index];
+    setIsCheckedArr(updatedArray);
+    console.log('Updated Array:', updatedArray);
   };
 
   return (
@@ -48,6 +49,7 @@ const CheckList: React.FC<Props> = ({ arr }) => {
             ></CheckBox>
           </div>
         ))}
+        <p>False Items: {...getFalseItems()}</p>
       </div>
     </>
   );

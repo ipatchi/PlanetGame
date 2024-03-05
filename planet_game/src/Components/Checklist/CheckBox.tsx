@@ -18,9 +18,10 @@ const CheckBox: React.FC<Props> = ({ text, checked, getChecked }) => {
   // console.log({text}, {isChecked})
   return (
     <>
-      <div className="checkBox" onClick={handleCheck}>
-        <input type="checkbox" checked={isChecked} />
-        {text}
+      <div className="checkBoxContainer" onClick={handleCheck}>
+        <input type="checkbox" className="checkbox" checked={isChecked} />
+        <label className="switch"></label>
+        <span className="switchLabel">{text}</span>
       </div>
     </>
   );
