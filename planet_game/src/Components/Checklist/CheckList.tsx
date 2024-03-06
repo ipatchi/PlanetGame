@@ -6,9 +6,10 @@ import CheckBox from './CheckBox';
 interface Props {
   arr: string[];
   defaultValue: boolean;
+  onChange: (value: string[]) => void;
 }
 
-const CheckList: React.FC<Props> = ({ arr }) => {
+const CheckList: React.FC<Props> = ({ arr, onChange }) => {
   const [isCheckedArr, setIsCheckedArr] = useState<boolean[]>([
     ...arr.map(() => {
       return false;
@@ -16,9 +17,9 @@ const CheckList: React.FC<Props> = ({ arr }) => {
   ]);
   //console.log('Array given:', ...isCheckedArr);
 
-  const getFalseItems = () => {
+  const getFalseItems = (updatedArray: boolean[]) => {
     const output: string[] = [];
-    isCheckedArr.forEach((value, index) => {
+    updatedArray.forEach((value, index) => {
       if (value === false) {
         output.push(arr[index]);
       }
@@ -35,6 +36,7 @@ const CheckList: React.FC<Props> = ({ arr }) => {
     updatedArray[index] = !updatedArray[index];
     setIsCheckedArr(updatedArray);
     console.log('Updated Array:', updatedArray);
+    onChange(getFalseItems(updatedArray));
   };
 
   return (
@@ -49,7 +51,6 @@ const CheckList: React.FC<Props> = ({ arr }) => {
             ></CheckBox>
           </div>
         ))}
-        <p>False Items: {...getFalseItems()}</p>
       </div>
     </>
   );

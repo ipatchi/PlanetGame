@@ -14,10 +14,13 @@ const QuestionSelection = () => {
   const [numberOfQuestions, setNumberOfQuestions] = useState(1);
   const [listedAttributes, setListedAttributes] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [attributeDeny, setAttributeDeny] = useState<string[]>([]);
   //Navigation Routing
   const navigate = useNavigate();
-  const Question = () => {
-    navigate('/Question', { state: { num: numberOfQuestions } });
+  const Question = (denyList) => {
+    navigate('/Question', {
+      state: { num: numberOfQuestions, attributeDenyList: denyList },
+    });
   };
   const Home = () => {
     navigate('/');
@@ -57,21 +60,18 @@ const QuestionSelection = () => {
                   <CheckList
                     arr={[...listedAttributes]}
                     defaultValue={true}
+                    onChange={(r) => {
+                      const updatedDenyList = r;
+                      console.log(updatedDenyList);
+                      setAttributeDeny(updatedDenyList);
+                    }}
                   ></CheckList>
+                  <p>{attributeDeny}</p>
                 </div>
               )}
             </div>
-            <br></br>
             <div>
-              <QuestionText>Choose People:</QuestionText>
-
-              <CheckList
-                arr={['BOB', 'STEVE', 'STEW', 'BART', 'DISCOTRON']}
-                defaultValue={true}
-              ></CheckList>
-            </div>
-            <div>
-              <CustomButton type="XL" onClick={Question}>
+              <CustomButton type="XL" onClick={() => Question(attributeDeny)}>
                 Start
               </CustomButton>
             </div>
