@@ -33,7 +33,8 @@ const getAttribute = async (attribute: string, planet: string) => {
 
 const newQuestionDeck = async (
   num_questions: number,
-  attributeDeny: string[]
+  attributeDeny: string[],
+  planetDeny: string[]
 ) => {
   const questionArray: Question[] = []; //Array to contain each 'question'
   for (let i = 0; i < num_questions; i++) {
@@ -41,7 +42,7 @@ const newQuestionDeck = async (
     //API Calls
 
     const num_answers = 3;
-    const planet = await getRandomPlanet();
+    const planet = await getRandomPlanet(planetDeny);
     const attribute = await getRandomAttribute(attributeDeny);
     const correctAnswer = await getAttribute(attribute, planet);
     const wrongAnswerArray = [];

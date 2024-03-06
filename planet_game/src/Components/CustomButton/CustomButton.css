@@ -11,6 +11,7 @@
   font-family: inherit;
   border-color: black;
   border-radius: 24px;
+  user-select: none;
   margin: 2%;
 }
 

@@ -1,7 +1,7 @@
 .checkList {
   text-align: left;
-  background-color: lightgray;
-  border-color: lightgray;
+  background-color: rgb(0,0,0,0.1);
+  border-color: transparent;
   border-radius: 12px;
   border-width: 12px;
   border-style: solid;
