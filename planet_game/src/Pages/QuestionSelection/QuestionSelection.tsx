@@ -17,7 +17,7 @@ const QuestionSelection = () => {
   const [attributeDeny, setAttributeDeny] = useState<string[]>([]);
   //Navigation Routing
   const navigate = useNavigate();
-  const Question = (denyList) => {
+  const Question = (denyList: string[]) => {
     navigate('/Question', {
       state: { num: numberOfQuestions, attributeDenyList: denyList },
     });
