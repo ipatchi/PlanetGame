@@ -22,13 +22,20 @@ const QuestionSelection = () => {
   //Navigation Routing
   const navigate = useNavigate();
   const Question = () => {
-    navigate('/Question', {
-      state: {
-        num: numberOfQuestions,
-        attributeDenyList: attributeDeny,
-        planetDenyList: nameDeny,
-      },
-    });
+    if (
+      nameDeny.length === listedNames.length ||
+      attributeDeny.length === listedAttributes.length
+    ) {
+      alert('Cannot start quiz with missing parameters');
+    } else {
+      navigate('/Question', {
+        state: {
+          num: numberOfQuestions,
+          attributeDenyList: attributeDeny,
+          planetDenyList: nameDeny,
+        },
+      });
+    }
   };
   const Home = () => {
     navigate('/');
