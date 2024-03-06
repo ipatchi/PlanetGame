@@ -10,7 +10,13 @@ const QuestionScreen = () => {
     navigate('/Learn');
   };
   const Start = () => {
-    navigate('/Question', { state: { num: 5 } });
+    navigate('/Question', {
+      state: {
+        num: 5,
+        attributeDenyList: ['name', 'description'],
+        planetDenyList: ['Josh Land', 'Planet Prina'],
+      },
+    });
   };
   const QuestionSelection = () => {
     navigate('/QuestionSelection');

@@ -3,11 +3,13 @@ import { useEffect, useState } from 'react';
 import './Slider.css';
 
 const Slider = ({
+  defaultValue,
   callOnChange,
 }: {
+  defaultValue: number;
   callOnChange: (returnVal: number) => void;
 }) => {
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(defaultValue);
 
   useEffect(() => {
     const ele = document.querySelector<HTMLElement>('foo');

@@ -38,10 +38,7 @@ const LearnScreen = () => {
 
   const getPlanetCall = async () => {
     const names = await getPlanetNames();
-
     setPlanetNames(names.sort());
-    console.log(planetNames);
-
     setIsLoading(false);
   };
 

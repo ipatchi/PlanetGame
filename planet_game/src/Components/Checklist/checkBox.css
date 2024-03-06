@@ -1,0 +1,42 @@
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: rgba(211, 93, 93, 0.5);
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+.switch::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: white;
+  top: 1px;
+  left: 1px;
+  transition: all 0.3s;
+}
+
+.checkbox:checked + .switch::after {
+  left: 20px;
+}
+.checkbox:checked + .switch {
+  background-color: rgb(127, 172, 131);
+}
+.checkbox {
+  display: none;
+}
+
+.checkBoxContainer {
+  align-items: flex;
+}
+.switchLabel {
+  font-size: large;
+  margin-left: 5px;
+  vertical-align: top;
+  color: black;
+  font-weight: bold;
+  user-select: none;
+}

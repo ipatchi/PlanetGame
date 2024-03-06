@@ -16,8 +16,10 @@ const QuestionScreen = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const { state } = useLocation();
-  const { num } = state;
+  const { num, attributeDenyList, planetDenyList } = state;
   const numberOfQuestions = num;
+  const attributeDeny = attributeDenyList;
+  const planetDeny = planetDenyList;
 
   //const reviewArr: ReviewText[] [];
   const [reviewArr, setReviewArr] = useState<ReviewText[]>([]);
@@ -34,7 +36,7 @@ const QuestionScreen = () => {
 
   //Get Question
   const loadQuestions = async (numberOfQuestions: number) => {
-    const arr = await newQuestionDeck(numberOfQuestions);
+    const arr = await newQuestionDeck(numberOfQuestions, attributeDeny, planetDeny);
     setQuestionArray(arr);
     setCurrentQuestionNum(1);
     setReviewArr([]);

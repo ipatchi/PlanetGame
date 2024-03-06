@@ -6,8 +6,6 @@ import randomInRange from '@scripts/rng';
 import Question from './QuestionType';
 import { fromDictionary } from '@scripts/scientificTranslator';
 
-const answerAttributeDenyList = ['name', 'description'];
-
 const getRandomPlanet = async (denyList?: string[]) => {
   //API Call for all planets, then randomise
   let planetList = await getPlanetNames();
@@ -18,10 +16,10 @@ const getRandomPlanet = async (denyList?: string[]) => {
   return planetList[randInt];
 };
 
-const getRandomAttribute = async () => {
+const getRandomAttribute = async (attributeDenyList: string[]) => {
   //API call for all attributes, then randomise
   let attributes: string[] = await getAttributes();
-  attributes = attributes.filter((at) => !answerAttributeDenyList.includes(at));
+  attributes = attributes.filter((at) => !attributeDenyList.includes(at));
   const attribute: string = attributes[randomInRange(0, attributes.length - 1)];
   return attribute;
 };
@@ -33,15 +31,19 @@ const getAttribute = async (attribute: string, planet: string) => {
   return allInfoByAttribute[attribute];
 };
 
-const newQuestionDeck = async (num_questions: number) => {
+const newQuestionDeck = async (
+  num_questions: number,
+  attributeDeny: string[],
+  planetDeny: string[]
+) => {
   const questionArray: Question[] = []; //Array to contain each 'question'
   for (let i = 0; i < num_questions; i++) {
     //Repeat for the number of questions needed
     //API Calls
 
     const num_answers = 3;
-    const planet = await getRandomPlanet();
-    const attribute = await getRandomAttribute();
+    const planet = await getRandomPlanet(planetDeny);
+    const attribute = await getRandomAttribute(attributeDeny);
     const correctAnswer = await getAttribute(attribute, planet);
     const wrongAnswerArray = [];
     const denyList = [planet];
