@@ -54,6 +54,11 @@ const LearnScreen = () => {
     console.log(attributes);
   };
 
+  const divStyle = {
+    fontWeight : "bolder",
+    fontSize : "110%",
+  };
+
   useEffect(() => {
     if (name) showDetails();
     getAllAttributes();
@@ -88,7 +93,7 @@ const LearnScreen = () => {
               <div className="infoText">
                 {listedAttributes.map((attribute: string, i) => (
                   <p key={listedDetails[i]}>
-                    {fromDictionary(attribute)} : {listedDetails[attribute]}
+                    <span style={divStyle}>{fromDictionary(attribute)}</span>: {listedDetails[attribute]}
                   </p>
                 ))}
               </div>
