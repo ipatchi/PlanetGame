@@ -55,8 +55,7 @@ const LearnScreen = () => {
   };
 
   const divStyle = {
-    fontWeight : "bolder",
-    fontSize : "120%",
+    fontWeight: '900',
   };
 
   useEffect(() => {
