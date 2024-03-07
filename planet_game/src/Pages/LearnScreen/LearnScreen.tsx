@@ -33,7 +33,6 @@ const LearnScreen = () => {
   //Planet API Call
   useEffect(() => {
     getPlanetCall();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getPlanetCall = async () => {
