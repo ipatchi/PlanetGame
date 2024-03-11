@@ -1,3 +1,4 @@
+//Record to hold values stored in API and their more legible counterparts
 const dict: Record<string, string> = {
   mass: 'mass (kg)',
   solarDistance: 'solar distance (au)',
@@ -11,6 +12,7 @@ const dict: Record<string, string> = {
   density: 'density (g/cm³)',
 };
 
+//Takes a value (API Key) and if it is in the record, returns the value, else returns the key to the caller
 const fromDictionary = (value: string) => {
   if (Object.keys(dict).includes(value)) {
     return dict[value];
