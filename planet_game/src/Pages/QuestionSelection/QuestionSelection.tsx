@@ -5,7 +5,6 @@ import CustomButton from '@components/CustomButton/CustomButton';
 import NavBar from '@components/NavBar/NavBar';
 import CentredScreen from '@components/Centre/CentredScreen';
 import Slider from '@components/Slider/Slider';
-import QuestionText from '@components/QuestionText/QuestionText';
 import CheckList from '@components/Checklist/CheckList';
 import getAttributes from '@api/Attributes';
 import getNames from '@api/getPlanetNames';
@@ -62,44 +61,41 @@ const QuestionSelection = () => {
         </NavBar>
         <>
           <CentredScreen>
-            <div>
-              <QuestionText>
-                Number of Questions: &nbsp; {numberOfQuestions}
-              </QuestionText>
-              <Slider
-                defaultValue={numberOfQuestions}
-                callOnChange={(e) => setNumberOfQuestions(e)}
-              ></Slider>
-            </div>
+            <div></div>
             <div>
               {isLoading ? (
                 <p>Fetching Values...</p>
               ) : (
-                <div>
-                  <table className="optionTable">
-                    <th>
-                      <h1>Choose Attributes:</h1>
-                      <CheckList
-                        arr={[...listedAttributes]}
-                        defaultValue={true}
-                        onChange={(r) => {
-                          const updatedDenyList = r;
-                          console.log(updatedDenyList);
-                          setAttributeDeny(updatedDenyList);
-                        }}
-                      ></CheckList>
-                    </th>
-                    <th>
-                      <h1>Choose Planets:</h1>
-                      <CheckList
-                        arr={[...listedNames]}
-                        defaultValue={true}
-                        onChange={(r) => {
-                          setNameDeny(r);
-                        }}
-                      ></CheckList>
-                    </th>
-                  </table>
+                <div className="optionTable">
+                  <div className="sliderBit">
+                    <h1>Number of Questions:&nbsp;{numberOfQuestions}</h1>
+                    <Slider
+                      defaultValue={numberOfQuestions}
+                      callOnChange={(e) => setNumberOfQuestions(e)}
+                    ></Slider>
+                  </div>
+                  <div>
+                    <h1>Choose Attributes:</h1>
+                    <CheckList
+                      arr={[...listedAttributes]}
+                      defaultValue={true}
+                      onChange={(r) => {
+                        const updatedDenyList = r;
+                        console.log(updatedDenyList);
+                        setAttributeDeny(updatedDenyList);
+                      }}
+                    ></CheckList>
+                  </div>
+                  <div>
+                    <h1>Choose Planets:</h1>
+                    <CheckList
+                      arr={[...listedNames]}
+                      defaultValue={true}
+                      onChange={(r) => {
+                        setNameDeny(r);
+                      }}
+                    ></CheckList>
+                  </div>
                 </div>
               )}
             </div>
