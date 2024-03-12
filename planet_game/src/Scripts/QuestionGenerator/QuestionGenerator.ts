@@ -32,6 +32,35 @@ const getRandomAttribute = async (attributeDenyList?: string[]) => {
   return attributes[randInt];
 };
 
+//Returns the number of availiable planets given a deny list
+const getNumberOfPlanets = async (planetDenyList?: string[]) => {
+  let planetList = await getPlanetNames();
+  if (planetDenyList) {
+    planetList = planetList.filter((pl) => !planetDenyList.includes(pl));
+  }
+  return planetList.length;
+};
+
+//Returns the number of availiable attributes given a deny list
+const getNumberOfAttributes = async (attributeDenyList?: string[]) => {
+  let attributeList = await getAttributes();
+  if (attributeDenyList) {
+    attributeList = attributeList.filter(
+      (at) => !attributeDenyList.includes(at)
+    );
+  }
+  return attributeList.length;
+};
+
+//Returns a list of all planets in a randomised order
+const getPlanetsInRandomOrder = async () => {
+  const planetList = await getPlanetNames();
+  return planetList
+    .map((a) => ({ sort: Math.random(), value: a }))
+    .sort((a, b) => a.sort - b.sort)
+    .map((a) => a.value);
+};
+
 //Returns the value of a single attribute of a single planet, 'e.g. Type of Mars => Terrestrial'
 const getAttribute = async (attribute: string, planet: string) => {
   const allInfoByAttribute: { [index: string]: string } = await allDetails(
@@ -47,49 +76,77 @@ const newQuestionDeck = async (
   planetDeny: string[]
 ) => {
   const questionArray: Question[] = []; //Array to contain each 'question'
-  for (let i = 0; i < num_questions; i++) {
-    //Repeat for the number of questions needed
-    const num_answers = 3; //How many wrong answers we would like to see (excluding correct)
 
-    //API calls to create the basis of the question:
-    const planet = await getRandomPlanet(planetDeny);
-    const attribute = await getRandomAttribute(attributeDeny);
-    const correctAnswer = await getAttribute(attribute, planet);
+  const num_answers = 3; //The MAXIMUM amount of incorrect answers that COULD be displayed
 
-    //Create the array of incorrect answers, given the question properties created above:
+  const numberOfPlanets = await getNumberOfPlanets(planetDeny);
+  const numberOfAttributes = await getNumberOfAttributes(attributeDeny);
+  const planetChoices: string[] = [];
+  const attributeChoices: string[] = [];
+
+  //For each question, choose a different planet and attribute (if able, else choose randomly)
+  for (let j = 0; j < num_questions; j++) {
+    let planet = '';
+    let attribute = '';
+    if (j < numberOfPlanets) {
+      planet = await getRandomPlanet([...planetChoices, ...planetDeny]);
+    } else {
+      planet = await getRandomPlanet(planetDeny);
+    }
+    if (j < numberOfAttributes) {
+      attribute = await getRandomAttribute([
+        ...attributeChoices,
+        ...attributeDeny,
+      ]);
+    } else {
+      attribute = await getRandomAttribute(attributeDeny);
+    }
+    planetChoices.push(planet);
+    attributeChoices.push(attribute);
+  }
+
+  //For every planet that has been created, generate the rest of the question
+  for (let index = 0; index < planetChoices.length; index++) {
+    const planetName = planetChoices[index];
+    const attribute = attributeChoices[index];
+
+    const correctAnswer = await getAttribute(attribute, planetName); //Get the correct answer
+    const randomPlanets = await getPlanetsInRandomOrder(); //Get every possible planet in a random order
+
     const wrongAnswerArray: string[] = [];
-    //Set the denied planets to be the planet the question is about, so 2 correct answers from same source
-    const planetDenyList = [planet];
 
-    for (let i = 0; i < num_answers; i++) {
-      const randomPlanet = await getRandomPlanet(planetDenyList);
-      const wrongAnswer = await getAttribute(attribute, randomPlanet);
+    //For each of the random planets, check if they are needed as an answer, until exhausted
+    for (let i = 0; i < randomPlanets.length; i++) {
+      const randomPlanet = randomPlanets[i];
+      const potentialAnswer = await getAttribute(attribute, randomPlanet);
       if (
-        !wrongAnswerArray.includes(wrongAnswer) &&
-        correctAnswer !== wrongAnswer
+        //If its not the correct one, listed, and theres not too many, add it on
+        correctAnswer != potentialAnswer &&
+        !wrongAnswerArray.includes(potentialAnswer) &&
+        wrongAnswerArray.length < num_answers
       ) {
-        wrongAnswerArray.push(wrongAnswer);
+        wrongAnswerArray.push(potentialAnswer);
       }
-      planetDenyList.push(randomPlanet);
     }
 
-    //Create the question string itself, using the fromDictionary to make the attribute more readable
+    //Formulate the question which is output to the user
     const question =
-      'What is the ' + fromDictionary(attribute) + ' of ' + planet + '?';
-    
-    //Creates the array of all the answers, by using the 
+      'What is the ' + fromDictionary(attribute) + ' of ' + planetName + '?';
+
+    //Combine all answers into one array with the correct one in a random position
     const allAnswers = [...wrongAnswerArray];
-    const correctAnswerPos = randomInRange(0, wrongAnswerArray.length - 1);
+    const correctAnswerPos = randomInRange(0, wrongAnswerArray.length);
     allAnswers.splice(correctAnswerPos, 0, correctAnswer);
 
+    //Turn all of the factors into a 'Question' type
     const Q: Question = {
       questionText: question,
       answerText: correctAnswer,
       all_answers: allAnswers,
     };
-    questionArray.push(Q);
+    questionArray.push(Q); //Add the question type to the question array
   }
-  return questionArray;
+  return questionArray; //Return the question array to where it is called from
 };
 
 export { newQuestionDeck };
