@@ -16,10 +16,25 @@
 }
 
 .entryBox {
-    border-radius: 12px;
-    border-color: white;
-    border-top: 0cap;
-    border-left: 0cap;
-    align-items:normal;
-    font-family: inherit;
+  border-radius: 12px;
+  border-color: black;
+  align-items: normal;
+  font-family: inherit;
+  display: inline-block;
+}
+.col-25 {
+  float: left;
+  width: 45%;
+  text-align: right;
+}
+
+.desc {
+  width: 54%;
+  min-height: 100px;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+h2 {
+  color: black;
 }
