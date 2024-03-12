@@ -1,0 +1,25 @@
+.infoText {
+  font-family: inherit;
+  padding: 1vw;
+  font-size: medium;
+  font-weight: bolder;
+  text-align: left;
+  margin: rgb(0, 0, 0);
+}
+
+.infoBox {
+  width: 50vw;
+  margin: auto;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 24px;
+}
+
+.entryBox {
+    border-radius: 12px;
+    border-color: white;
+    border-top: 0cap;
+    border-left: 0cap;
+    align-items:normal;
+    font-family: inherit;
+}

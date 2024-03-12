@@ -6,9 +6,11 @@ import CustomButton from '@components/CustomButton/CustomButton';
 
 const QuestionScreen = () => {
   const navigate = useNavigate();
+
   const Learn = () => {
     navigate('/Learn');
   };
+
   const Start = () => {
     navigate('/Question', {
       state: {
@@ -18,9 +20,15 @@ const QuestionScreen = () => {
       },
     });
   };
+
   const QuestionSelection = () => {
     navigate('/QuestionSelection');
   };
+
+  const NewPlanet = () => {
+    navigate('/New');
+  };
+
   return (
     <>
       <div>
@@ -38,6 +46,10 @@ const QuestionScreen = () => {
             <div></div>
             <CustomButton type="XL" onClick={Learn}>
               Astro Learn
+            </CustomButton>
+            <div></div>
+            <CustomButton type="XL" onClick={NewPlanet}>
+              New Planet
             </CustomButton>
           </div>
         </CentredScreen>
