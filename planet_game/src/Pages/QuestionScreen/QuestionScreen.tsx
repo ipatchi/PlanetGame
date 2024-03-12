@@ -5,8 +5,8 @@ import CentredScreen from '@components/Centre/CentredScreen';
 import NavBar from '@components/NavBar/NavBar';
 import QuestionText from '@components/QuestionText/QuestionText';
 import CustomButton from '@components/CustomButton/CustomButton';
-import { newQuestionDeck } from '@components/QuestionGenerator/QuestionGenerator';
-import Question from '@components/QuestionGenerator/QuestionType';
+import { newQuestionDeck } from '@scripts/QuestionGenerator/QuestionGenerator';
+import Question from '@scripts/QuestionGenerator/QuestionType';
 
 import ReviewText from '../ReviewScreen/ReviewType';
 
