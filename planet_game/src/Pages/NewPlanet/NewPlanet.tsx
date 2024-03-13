@@ -6,12 +6,10 @@ import CustomButton from '@components/CustomButton/CustomButton';
 import NewPlanet from '@components/NewPlanetForm/NewPlanetForm';
 
 const NewPlanetScreen = () => {
-
   const navigate = useNavigate();
   const Home = () => {
     navigate('/');
   };
-
 
   return (
     <>
@@ -21,8 +19,9 @@ const NewPlanetScreen = () => {
             Home
           </CustomButton>
         </NavBar>
+
         <CentredScreen>
-            <NewPlanet></NewPlanet>
+          <NewPlanet></NewPlanet>
         </CentredScreen>
       </div>
     </>
