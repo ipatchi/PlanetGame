@@ -1,6 +1,6 @@
 export interface PlanetDataType {
   name?: string;
-  typeOfPlanet?: string;
+  type?: string;
   mass?: number;
   solarDistance?: number;
   description?: string;

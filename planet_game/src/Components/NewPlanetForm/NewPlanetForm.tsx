@@ -4,30 +4,33 @@ import CentredScreen from '../Centre/CentredScreen';
 import './NewPlanetForm.css';
 import CustomButton from '../CustomButton/CustomButton';
 import { PlanetDataType } from './planetDataType';
+import postNewPlanet from '@api/postNewPlanet';
 
-
-interface FormProps {
-  onClick: (data: PlanetDataType) => void;
-}
-
-const NewPlanet = ({ onClick }: FormProps) => {
+const NewPlanet = () => {
   const [listedAttributes, setListedAttributes] = useState<string[] | null>(
     null
   );
-  const [planetData, setPlanetData] = React.useState<PlanetDataType>({});
+  const [planetData, setPlanetData] = useState<PlanetDataType>({});
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setPlanetData({ ...planetData, [name]: value });
     console.log({ planetData });
   };
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = event.target;
+    setPlanetData({ ...planetData, [name]: value });
+    console.log({ planetData });
+  };
 
+
+  // NOT REACHING bhere
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const newPlanetData = planetData;
-    onClick(planetData);
-    console.log({planetData}, {newPlanetData})
-    return newPlanetData;
+    // API call
+    alert('here');
+    postNewPlanet(planetData);
+    console.log({ planetData });
   };
 
   const getAllAttributes = async () => {
@@ -37,7 +40,6 @@ const NewPlanet = ({ onClick }: FormProps) => {
 
   useEffect(() => {
     getAllAttributes();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   });
 
   return (
@@ -67,13 +69,15 @@ const NewPlanet = ({ onClick }: FormProps) => {
                   <label>
                     <p>
                       <span className="col-25">type: &nbsp;</span>
-                      <input
+                      <select
                         className="entryBox"
-                        type="string"
-                        name="typeOfPlanet"
-                        value={planetData.typeOfPlanet}
-                        onChange={handleInputChange}
-                      ></input>
+                        value={planetData.type}
+                        name="type"
+                        onChange={handleSelectChange}
+                      >
+                        <option value={'gaseous'}>gaseous</option>
+                        <option value={'terrestrial'}>terrestrial</option>
+                      </select>
                     </p>
                   </label>
                   <label>
