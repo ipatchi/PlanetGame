@@ -21,7 +21,7 @@ const postNewPlanet = async (planetData: PlanetDataType) => {
     surfacePressure: planetData.surfacePressure,
     rotationalPeriod: planetData.rotationalPeriod,
   });
-  console.log(req.data[0].key);
+  console.log(JSON.stringify(req));
 };
 
 export default postNewPlanet;

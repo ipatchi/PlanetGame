@@ -3,7 +3,7 @@ import getAttributes from '@api/Attributes';
 import CentredScreen from '../Centre/CentredScreen';
 import './NewPlanetForm.css';
 import CustomButton from '../CustomButton/CustomButton';
-//import postNewPlanet from '@api/postNewPlanet';
+import postNewPlanet from '@api/postNewPlanet';
 
 const NewPlanet = () => {
   const [listedAttributes, setListedAttributes] = useState<string[] | null>(
@@ -17,8 +17,8 @@ const NewPlanet = () => {
     const form = e.target;
     const formData = new FormData(form);
     const formJson = Object.fromEntries(formData.entries());
-    alert(formJson);
-    console.log(formJson);
+    console.log({formJson})
+    postNewPlanet(formJson)
   };
 
   const getAllAttributes = async () => {
@@ -103,10 +103,86 @@ const NewPlanet = () => {
                       ></input>
                     </p>
                   </label>
+                  <label>
+                    <p>
+                      <span className="col-25">
+                        equitorial radius (km): &nbsp;
+                      </span>
+                      <input
+                        className="entryBox"
+                        type="number"
+                        name="eRadius"
+                      ></input>
+                    </p>
+                  </label>
+                  <label>
+                    <p>
+                      <span className="col-25">polar radius (km): &nbsp;</span>
+                      <input
+                        className="entryBox"
+                        type="number"
+                        name="pRadius"
+                      ></input>
+                    </p>
+                  </label>
+                  <label>
+                    <p>
+                      <span className="col-25">density(g/cm³): &nbsp;</span>
+                      <input
+                        className="entryBox"
+                        type="number"
+                        name="density"
+                      ></input>
+                    </p>
+                  </label>
+                  <label>
+                    <p>
+                      <span className="col-25">gravity (N/kg): &nbsp;</span>
+                      <input
+                        className="entryBox"
+                        type="number"
+                        name="gravity"
+                      ></input>
+                    </p>
+                  </label>
+                  <label>
+                    <p>
+                      <span className="col-25">temperature (k): &nbsp;</span>
+                      <input
+                        className="entryBox"
+                        type="number"
+                        name="temperature"
+                      ></input>
+                    </p>
+                  </label>
+                  <label>
+                    <p>
+                      <span className="col-25">
+                        surface pressure (dbar): &nbsp;
+                      </span>
+                      <input
+                        className="entryBox"
+                        type="number"
+                        name="surfacePressure"
+                      ></input>
+                    </p>
+                  </label>
+                  <label>
+                    <p>
+                      <span className="col-25">
+                        rotational period (hours): &nbsp;
+                      </span>
+                      <input
+                        className="entryBox"
+                        type="number"
+                        name="rotationalPeriod"
+                      ></input>
+                    </p>
+                  </label>
                 </div>
               </div>
               <CustomButton type="large" onClick={() => {}}>
-                submitbngifdos
+                submit
               </CustomButton>
             </form>
           )}
